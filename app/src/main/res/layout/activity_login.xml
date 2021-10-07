@@ -156,10 +156,10 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/gooddog"
-            android:text="sign in"
+            android:fontFamily="@font/godoroundedr"
+            android:text="wowbro"
             android:textColor="#454545"
-            android:textSize="25dp"
+            android:textSize="35dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
