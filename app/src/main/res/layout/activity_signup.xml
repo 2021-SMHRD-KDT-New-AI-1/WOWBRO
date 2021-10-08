@@ -130,6 +130,7 @@
             android:background="@drawable/button_bg"
             android:fontFamily="@font/scd4"
             android:text="회원가입"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
