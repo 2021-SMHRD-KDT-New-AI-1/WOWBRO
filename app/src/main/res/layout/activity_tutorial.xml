@@ -31,21 +31,21 @@
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:background="@android:color/transparent"
         android:text="@string/next"
-        android:textColor="@android:color/white"/>
+        android:textColor="#373737" />
 
     <Button
         android:id="@+id/btn_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:background="@android:color/transparent"
         android:text="@string/skip"
-        android:textColor="@android:color/white"/>
+        android:textColor="#373737" />
 
 
 </RelativeLayout>
