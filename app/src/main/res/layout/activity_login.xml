@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <EditText
-            android:id="@+id/email2"
+            android:id="@+id/edit_id"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:background="@drawable/edit_text_bg"
@@ -45,7 +45,7 @@
             android:paddingTop="8dp"
             android:paddingRight="20dp"
             android:paddingBottom="8dp"
-            android:textColor="#262626"
+            android:textColor="@color/black"
             android:textColorHint="#545353"
             android:textSize="14sp"
             app:flow_horizontalBias=".5"
@@ -58,7 +58,7 @@
             app:layout_constraintVertical_bias="0.2" />
 
         <EditText
-            android:id="@+id/pw2"
+            android:id="@+id/edit_pw"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
@@ -77,11 +77,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".8"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email2"
+            app:layout_constraintTop_toBottomOf="@+id/edit_id"
             app:layout_constraintVertical_bias="0.05" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_register"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginBottom="184dp"
@@ -91,7 +91,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pw2"
+            app:layout_constraintTop_toBottomOf="@+id/edit_pw"
             app:layout_constraintVertical_bias="1.2" />
 
         <TextView
@@ -106,7 +106,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pw2"
+            app:layout_constraintTop_toBottomOf="@+id/edit_pw"
             app:layout_constraintVertical_bias="0.002" />
 
         <TextView
@@ -134,7 +134,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.33"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_register"
             app:layout_constraintVertical_bias=".7" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -149,7 +149,7 @@
             app:layout_constraintHorizontal_bias="0.66"
             app:layout_constraintStart_toStartOf="parent"
 
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_register"
             app:layout_constraintVertical_bias=".7" />
 
         <TextView

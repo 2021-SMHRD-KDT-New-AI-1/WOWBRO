@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="1">
 
         <EditText
-            android:id="@+id/email2"
+            android:id="@+id/edit_id"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:background="@drawable/edit_text_bg"
@@ -44,12 +44,13 @@
             android:paddingTop="8dp"
             android:paddingRight="20dp"
             android:paddingBottom="8dp"
+            android:textColor="@color/black"
             android:textColorHint="#545353"
             android:textSize="14sp"
             app:flow_horizontalBias=".5"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
 
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".8"
             app:layout_constraintHorizontal_bias="0.733"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +58,7 @@
             app:layout_constraintVertical_bias="0.189" />
 
         <EditText
-            android:id="@+id/pw2"
+            android:id="@+id/edit_pw"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
@@ -68,18 +69,19 @@
             android:paddingTop="8dp"
             android:paddingRight="20dp"
             android:paddingBottom="8dp"
+            android:textColor="@color/black"
             android:textColorHint="#545353"
-            android:textSize="14sp"
 
+            android:textSize="14sp"
             app:flow_horizontalBias=".5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".8"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email2" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_id" />
 
         <EditText
-            android:id="@+id/pw3"
+            android:id="@+id/edit_pw2"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
@@ -90,16 +92,17 @@
             android:paddingRight="20dp"
             android:paddingBottom="8dp"
 
+            android:textColor="@color/black"
             android:textColorHint="#545353"
             android:textSize="14sp"
             app:flow_horizontalBias=".5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".8"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pw2" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_pw" />
 
         <EditText
-            android:id="@+id/pw4"
+            android:id="@+id/edit_nick"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
@@ -110,16 +113,17 @@
             android:paddingRight="20dp"
 
             android:paddingBottom="8dp"
+            android:textColor="@color/black"
             android:textColorHint="#545353"
             android:textSize="14sp"
             app:flow_horizontalBias=".5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".8"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pw3" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_pw2" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_register"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginBottom="50dp"
@@ -129,7 +133,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pw3"
+            app:layout_constraintTop_toBottomOf="@+id/edit_pw2"
             app:layout_constraintVertical_bias="0.988" />
 
         <TextView
