@@ -12,11 +12,15 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.jkh.wowbro2.HomeAdapter.FeaturedAdapter;
 import com.jkh.wowbro2.HomeAdapter.FeaturedHelperClass;
 import com.jkh.wowbro2.ListView.Location;
 import com.jkh.wowbro2.ListView.LocationAdapter;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -25,33 +29,48 @@ public class UserDashboard extends AppCompatActivity {
     RecyclerView featuredRecycler ;
     RecyclerView.Adapter adapter;
     ListView listView;
+    TextView tv_welcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_dashboard);
 
         //hooks
+        tv_welcome = findViewById(R.id.tv_welcome);
         featuredRecycler = findViewById(R.id.featured_recycler);
         featuredRecycler();
+        Intent intent = getIntent();
+        String stringInfo = intent.getStringExtra("info");
+        JSONObject info = null;
+        try {
+            info = new JSONObject(stringInfo);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            tv_welcome.setText(info.getString("id") + "님 환영합니다!");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         listView = findViewById(R.id.listview);
 
         ArrayList<Location> arrayList = new ArrayList<>();
 
-        arrayList.add(new Location(R.drawable.yangrim2,"비엔날레 전시관","이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.yangrim4,"비엔날레 전시관","이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.art1,"비엔날레 전시관","이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.art1,"비엔날레 전시관","이 곳은 수많은 전설이 떠돌아 다닙니다."));
+        arrayList.add(new Location(R.drawable.yangrim2, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
+        arrayList.add(new Location(R.drawable.yangrim4, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
+        arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
+        arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
 
-        LocationAdapter locationAdapter = new LocationAdapter(this,R.layout.list_card_design,arrayList);
+        LocationAdapter locationAdapter = new LocationAdapter(this, R.layout.list_card_design, arrayList);
 
         listView.setAdapter(locationAdapter);
 
 
         imageView = findViewById(R.id.menu);
-       imageView.setColorFilter(Color.parseColor("#FF665F5F"));
+        imageView.setColorFilter(Color.parseColor("#FF665F5F"));
 
 
     }

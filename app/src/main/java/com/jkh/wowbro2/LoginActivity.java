@@ -6,17 +6,39 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     TextView textView6;
+    EditText edit_id, edit_pw;
+    Button btn_register;
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         textView6 = findViewById(R.id.textView6);
+        btn_register = findViewById(R.id.btn_register);
+        edit_id = findViewById(R.id.edit_id);
+        edit_pw = findViewById(R.id.edit_pw);
+
 
         SharedPreferences pref = getSharedPreferences("checkFirst", Activity.MODE_PRIVATE);
         boolean checkFirst = pref.getBoolean("checkFirst", false);
@@ -37,6 +59,53 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+
+
+
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user_id = edit_id.getText().toString();
+                String user_pw = edit_pw.getText().toString();
+
+                String url = "http://172.30.1.18:3002/Login";
+                StringRequest request = new StringRequest(
+                        Request.Method.GET,
+                        url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONArray customerInfo = new JSONArray(response);
+                                    for (int i = 0;i<customerInfo.length();i++) {
+                                        JSONObject info = (JSONObject) customerInfo.get(i);
+                                        String id = info.getString("id");
+                                        String pw = info.getString("pw");
+                                        if (user_id.equals(id) && user_pw.equals(pw)) {
+                                            Intent intent = new Intent(LoginActivity.this, UserDashboard.class);
+                                            intent.putExtra("info",info.toString());
+                                            startActivity(intent);
+                                        }
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }
+                );
+                requestQueue.add(request);
             }
         });
     }
