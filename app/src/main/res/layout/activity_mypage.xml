@@ -52,18 +52,19 @@
             android:id="@+id/mypage_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/godoroundedr"
-            android:text="my profile"
-            android:textColor="#454545"
-            android:textSize="35dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/scd6"
+            android:text="KyungHoon님"
+            android:textColor="#656565"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <GridLayout
-            android:layout_width=""
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,8 +84,8 @@
                 android:layout_gravity="fill"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
 
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
@@ -105,11 +106,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/scd4"
                         android:text="메인화면"
-                        android:textColor="#3C3B3B"
-                        android:layout_marginTop="2dp"
-                        android:layout_gravity="center_horizontal"
+                        android:textColor="#595959"
                         android:textSize="11dp" />
 
 
@@ -128,7 +129,7 @@
                 android:layout_gravity="fill"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="30dp"
-
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp">
@@ -144,15 +145,16 @@
                         android:layout_height="50dp"
 
                         android:layout_gravity="center"
+                        android:backgroundTint="#A27070"
                         app:srcCompat="@drawable/ic_baseline_fmd_good_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/scd4"
                         android:text="도착한 장소"
-                        android:textColor="#3C3B3B"
+                        android:textColor="#595959"
                         android:textSize="11dp" />
 
 
@@ -171,8 +173,8 @@
                 android:layout_gravity="fill"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="80dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp">
 
@@ -193,11 +195,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/scd4"
                         android:gravity="center_horizontal"
                         android:text="회원정보 변경"
-                        android:textColor="#3C3B3B"
+                        android:textColor="#595959"
                         android:textSize="11dp" />
 
 
@@ -217,7 +219,7 @@
                 android:layout_gravity="fill"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="80dp"
-
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp">
@@ -238,11 +240,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/scd4"
                         android:gravity="center_horizontal"
                         android:text="Logout"
-                        android:textColor="#3C3B3B"
+                        android:textColor="#595959"
                         android:textSize="11dp" />
 
 
