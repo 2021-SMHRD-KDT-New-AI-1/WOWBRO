@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jkh.wowbro2.HomeAdapter.FeaturedAdapter;
 import com.jkh.wowbro2.HomeAdapter.FeaturedHelperClass;
@@ -33,6 +34,7 @@ public class UserDashboard extends AppCompatActivity {
     TextView tv_welcome;
     DrawerLayout drawerLayout;
     View drawerView;
+    private long backBtnTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +102,20 @@ public class UserDashboard extends AppCompatActivity {
 
         imageView = findViewById(R.id.img_menu);
         imageView.setColorFilter(Color.parseColor("#FF665F5F"));
+    }
 
+    @Override
+    public void onBackPressed() {
+        long curTime = System.currentTimeMillis();
+        long gapTime = curTime - backBtnTime;
+
+        if (0 <= gapTime && 2000 >= gapTime) {
+            super.onBackPressed();
+            finishAffinity();
+        } else {
+            backBtnTime = curTime;
+            Toast.makeText(this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -119,8 +134,5 @@ public class UserDashboard extends AppCompatActivity {
 
         adapter = new FeaturedAdapter(featuredLocations);
         featuredRecycler.setAdapter(adapter);
-
-
-
     }
 }
