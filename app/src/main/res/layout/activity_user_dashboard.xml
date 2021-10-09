@@ -1,147 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserDashboard"
-    android:orientation="vertical"
-    android:background="@color/home_background">
+    tools:context=".UserDashboard">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#FD5151">
-
-        <ImageView
-            android:id="@+id/menu"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/menu" />
-
-    </RelativeLayout>
-
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:orientation="vertical"
+        android:background="@color/home_background">
 
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="60dp"
+            android:background="#FD5151">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="460dp"
-                android:background="@drawable/background"
-                android:padding="15dp">
+            <ImageView
+                android:id="@+id/img_menu"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/menu" />
 
+        </RelativeLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="60dp"
-                    android:fontFamily="@font/scd6"
-                    android:text="WOWBRO"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="22dp"
-                    android:textStyle="normal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/scd4"
-                    android:text="우리만의 특별한 광주로 , "
-                    android:textAllCaps="false"
-
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:textStyle="normal">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="180dp"
-                    android:fontFamily="@font/scd4"
-                    android:text="추천 스토리"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/featured_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="215dp" />
-
-                <TextView
-                    android:id="@+id/tv_welcome"
-                    android:layout_width="251dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="124dp"
-                    android:layout_marginEnd="145dp"
-                    android:text="TextView"
-                    android:textSize="24sp" />
-
-            </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:padding="20dp"
-
-                >
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="460dp"
+                    android:background="@drawable/background"
+                    android:padding="15dp">
+
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/scd4"
-                        android:text="여기는 어때요?"
-                        android:textColor="#524D4D"
-                        android:textSize="17dp"></TextView>
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="60dp"
+                        android:fontFamily="@font/scd6"
+                        android:text="WOWBRO"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22dp"
+                        android:textStyle="normal">
 
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/scd4"
+                        android:text="우리만의 특별한 광주로 , "
+                        android:textAllCaps="false"
+
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp"
+                        android:textStyle="normal">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="180dp"
+                        android:fontFamily="@font/scd4"
+                        android:text="추천 스토리"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/featured_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="215dp" />
+
+                    <TextView
+                        android:id="@+id/tv_welcome"
+                        android:layout_width="251dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="124dp"
+                        android:layout_marginEnd="145dp"
+                        android:text="TextView"
+                        android:textSize="24sp" />
 
                 </RelativeLayout>
 
-                <ListView
-                    android:id="@+id/listview"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1300dp"
-                    android:layout_marginTop="20dp"/>
-<!--여기 리스트뷰가 스크롤뷰랑 겹치는 현상으로 스크롤뷰랑 겹치지 않게 뷰포인트 효과를 줬는데 이렇게되면 리스트가 화면 전체에 나오지만 높이를 인식 못하는 부분이 있음 => 이부분에대한 고려가 필요함-->
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:padding="20dp"
 
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/scd4"
+                            android:text="여기는 어때요?"
+                            android:textColor="#524D4D"
+                            android:textSize="17dp"></TextView>
+
+
+                    </RelativeLayout>
+
+                    <ListView
+                        android:id="@+id/listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="1300dp"
+                        android:layout_marginTop="20dp"/>
+                    <!--여기 리스트뷰가 스크롤뷰랑 겹치는 현상으로 스크롤뷰랑 겹치지 않게 뷰포인트 효과를 줬는데 이렇게되면 리스트가 화면 전체에 나오지만 높이를 인식 못하는 부분이 있음 => 이부분에대한 고려가 필요함-->
+                </LinearLayout>
             </LinearLayout>
-
-
-        </LinearLayout>
-
-    </ScrollView>
-
-
-
-
-
-
-</LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <include layout="@layout/activity_drawer"/>
+</androidx.drawerlayout.widget.DrawerLayout>
