@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/scd6"
-            android:text="KyungHoon님"
+            android:text="KyungHoon님!"
             android:textColor="#656565"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +110,7 @@
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/scd4"
                         android:text="메인화면"
-                        android:textColor="#595959"
+                        android:textColor="#463636"
                         android:textSize="11dp" />
 
 
@@ -146,7 +146,7 @@
 
                         android:layout_gravity="center"
                         android:backgroundTint="#A27070"
-                        app:srcCompat="@drawable/ic_baseline_fmd_good_24" />
+                        app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/scd4"
                         android:text="도착한 장소"
-                        android:textColor="#595959"
+                        android:textColor="#414040"
                         android:textSize="11dp" />
 
 
@@ -190,7 +190,7 @@
 
 
                         android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/ic_baseline_mood_24" />
+                        app:srcCompat="@drawable/ic_baseline_settings_backup_restore_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
                         android:fontFamily="@font/scd4"
                         android:gravity="center_horizontal"
                         android:text="회원정보 변경"
-                        android:textColor="#595959"
+                        android:textColor="#22221B"
                         android:textSize="11dp" />
 
 
