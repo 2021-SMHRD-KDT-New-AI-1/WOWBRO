@@ -1,14 +1,15 @@
 package com.jkh.wowbro2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -25,11 +26,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class UserDashboard extends AppCompatActivity {
-    ImageView imageView;
+    ImageView imageView, img_menu, img_close;
     RecyclerView featuredRecycler ;
     RecyclerView.Adapter adapter;
     ListView listView;
     TextView tv_welcome;
+    DrawerLayout drawerLayout;
+    View drawerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +41,34 @@ public class UserDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_user_dashboard);
 
         //hooks
+        drawerLayout = findViewById(R.id.drawer_layout);
+        drawerView = findViewById(R.id.drawer);
+        img_menu = findViewById(R.id.img_menu);
         tv_welcome = findViewById(R.id.tv_welcome);
         featuredRecycler = findViewById(R.id.featured_recycler);
+        img_close = findViewById(R.id.img_close);
+
+        img_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(drawerView);
+            }
+        });
+
+        drawerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return true;
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.closeDrawers();
+            }
+        });
+
         featuredRecycler();
         Intent intent = getIntent();
         String stringInfo = intent.getStringExtra("info");
@@ -69,7 +98,7 @@ public class UserDashboard extends AppCompatActivity {
         listView.setAdapter(locationAdapter);
 
 
-        imageView = findViewById(R.id.menu);
+        imageView = findViewById(R.id.img_menu);
         imageView.setColorFilter(Color.parseColor("#FF665F5F"));
 
 

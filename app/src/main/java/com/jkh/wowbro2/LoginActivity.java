@@ -84,17 +84,20 @@ public class LoginActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 try {
                                     JSONArray customerInfo = new JSONArray(response);
+                                    boolean found = false;
                                     for (int i = 0;i<customerInfo.length();i++) {
                                         JSONObject info = (JSONObject) customerInfo.get(i);
                                         String id = info.getString("id");
                                         String pw = info.getString("pw");
                                         if (user_id.equals(id) && user_pw.equals(pw)) {
+                                            found = true;
                                             Intent intent = new Intent(LoginActivity.this, UserDashboard.class);
                                             intent.putExtra("info",info.toString());
                                             startActivity(intent);
-                                        } else {
-                                            Toast.makeText(getApplicationContext(),"ID와 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                                         }
+                                    }
+                                    if (found == false){
+                                        Toast.makeText(getApplicationContext(),"ID와 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
