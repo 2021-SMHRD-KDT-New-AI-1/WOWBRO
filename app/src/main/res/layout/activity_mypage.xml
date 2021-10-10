@@ -52,7 +52,7 @@
             android:id="@+id/mypage_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/scd6"
             android:text="KyungHoon님!"
             android:textColor="#656565"
@@ -61,10 +61,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/mypage_id2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/scd6"
+            android:text="클리어 횟수 : "
+            android:textColor="#959292"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mypage_id" />
+
+        <TextView
+            android:id="@+id/mypage_id3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/scd6"
+            android:text="0"
+            android:textColor="#959292"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toEndOf="@+id/mypage_id2"
+            app:layout_constraintTop_toBottomOf="@+id/mypage_id" />
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,14 +110,13 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="30dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
 
                 app:cardCornerRadius="20dp"
-                app:cardElevation="5dp"
-                >
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -127,10 +154,10 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="30dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp">
 
@@ -171,10 +198,10 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="80dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="80dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp">
 
@@ -217,10 +244,10 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="80dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="80dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp">
 
@@ -246,8 +273,6 @@
                         android:text="Logout"
                         android:textColor="#595959"
                         android:textSize="11dp" />
-
-
 
 
                 </LinearLayout>
