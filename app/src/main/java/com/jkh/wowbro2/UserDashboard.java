@@ -165,7 +165,7 @@ public class UserDashboard extends AppCompatActivity {
         featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
         featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
 
-        adapter = new FeaturedAdapter(featuredLocations);
+        adapter = new FeaturedAdapter(featuredLocations,getApplicationContext());
         featuredRecycler.setAdapter(adapter);
     }
 }
