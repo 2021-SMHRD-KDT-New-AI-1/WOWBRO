@@ -44,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String pw = edit_pw.getText().toString();
                 String pw2 = edit_pw2.getText().toString();
                 String nick = edit_nick.getText().toString();
-                String url = "http://172.30.1.18:3002/Gaip?id=";
+                String url = "http://172.30.1.26:3002/Gaip?id=";
                 url += id;
                 url += "&pw=" + pw;
                 url += "&nick=" + nick;
