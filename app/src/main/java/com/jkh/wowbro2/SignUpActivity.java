@@ -1,9 +1,7 @@
 package com.jkh.wowbro2;
 
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        btn_register = findViewById(R.id.btn_register);
+        btn_register = findViewById(R.id.btn_update);
         edit_id = findViewById(R.id.edit_id);
         edit_pw = findViewById(R.id.edit_pw);
         edit_pw2 = findViewById(R.id.edit_pw2);
