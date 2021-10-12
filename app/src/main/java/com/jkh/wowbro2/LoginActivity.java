@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 String user_id = edit_id.getText().toString();
                 String user_pw = edit_pw.getText().toString();
 
-                String url = "http://172.30.1.26:3002/Login";
+                String url = "http://172.30.1.18:3002/Login";
                 StringRequest request = new StringRequest(
                         Request.Method.GET,
                         url,
@@ -125,6 +125,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (0 <= gapTime && 2000 >= gapTime) {
             super.onBackPressed();
+            finishAffinity();
         } else {
             backBtnTime = curTime;
             Toast.makeText(this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
