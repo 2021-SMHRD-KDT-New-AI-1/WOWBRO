@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                 String user_id = edit_id.getText().toString();
                 String user_pw = edit_pw.getText().toString();
 
-                String url = "http://172.30.1.26:3002/Login";
+                String url = "http://172.30.1.18:3002/Login";
                 StringRequest request = new StringRequest(
                         Request.Method.GET,
                         url,
@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                                         JSONObject info = (JSONObject) customerInfo.get(i);
                                         String id = info.getString("id");
                                         String pw = info.getString("pw");
+                                        String clear = info.getString("clear");
                                         if (user_id.equals(id) && user_pw.equals(pw)) {
                                             found = true;
                                             Intent intent = new Intent(LoginActivity.this, UserDashboard.class);

@@ -1,11 +1,13 @@
 package com.jkh.wowbro2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -31,9 +33,10 @@ public class UserDashboard extends AppCompatActivity {
     RecyclerView featuredRecycler ;
     RecyclerView.Adapter adapter;
     ListView listView;
-    TextView tv_welcome;
+    TextView tv_userid, tv_userclear;
     DrawerLayout drawerLayout;
     View drawerView;
+    CardView cv_home, cv_ranking, cv_mypage;
     private long backBtnTime = 0;
 
     @Override
@@ -46,9 +49,13 @@ public class UserDashboard extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerView = findViewById(R.id.drawer);
         img_menu = findViewById(R.id.img_menu);
-        tv_welcome = findViewById(R.id.tv_welcome);
         featuredRecycler = findViewById(R.id.featured_recycler);
         img_close = findViewById(R.id.img_close);
+        tv_userid = findViewById(R.id.tv_userid);
+        tv_userclear = findViewById(R.id.tv_userclear);
+        cv_home = findViewById(R.id.cv_home);
+        cv_ranking = findViewById(R.id.cv_ranking);
+        cv_mypage = findViewById(R.id.cv_mypage);
 
         img_menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,13 +78,43 @@ public class UserDashboard extends AppCompatActivity {
             }
         });
 
+        cv_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    //TODO 액티비티 화면 재갱신 시키는 코드
+                    Intent intent = getIntent();
+                    finish(); //현재 액티비티 종료 실시
+                    overridePendingTransition(0, 0); //인텐트 애니메이션 없애기
+                    startActivity(intent); //현재 액티비티 재실행 실시
+                    overridePendingTransition(0, 0); //인텐트 애니메이션 없애기
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        cv_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserDashboard.this, MypageActivity.class);
+                startActivity(intent);
+            }
+        });
+
         featuredRecycler();
         Intent intent = getIntent();
         String stringInfo = intent.getStringExtra("info");
+        SharedPreferences.Editor editor = getSharedPreferences("shared", MODE_PRIVATE).edit();
+        editor.putString("INFO",stringInfo);
+        editor.commit();
         JSONObject info = null;
         try {
             info = new JSONObject(stringInfo);
-            tv_welcome.setText(info.getString("id") + "님 환영합니다!");
+            tv_userid.setText(info.getString("id"));
+            tv_userclear.setText("획득한 도장 : " + info.getString("clear") + "개");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
