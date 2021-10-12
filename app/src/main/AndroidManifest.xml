@@ -30,6 +30,11 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
         </activity>
@@ -43,6 +48,7 @@
         <activity
             android:name=".TutorialActivity"
             android:exported="true" />
+
         <activity
             android:name=".UserDashboard"
             android:exported="true">
@@ -60,11 +66,7 @@
         <activity
             android:name=".ThemeActivity1"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
 
         </activity>
