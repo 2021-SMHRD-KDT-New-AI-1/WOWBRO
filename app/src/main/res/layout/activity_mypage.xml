@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/scd6"
-            android:text="클리어 횟수 : "
+            android:text="획득한 도장 : "
             android:textColor="#959292"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +130,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+                        app:srcCompat="@drawable/ic_baseline_favorite_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
