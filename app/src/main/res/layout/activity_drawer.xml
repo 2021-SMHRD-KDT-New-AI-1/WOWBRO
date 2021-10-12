@@ -44,11 +44,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/scd6"
         android:text="획득한 도장 : 0개"
         android:textColor="#AEAAAA"
-        android:textSize="15dp" />
+        android:textSize="13dp" />
 
 
     <GridLayout
