@@ -113,7 +113,7 @@ public class UserDashboard extends AppCompatActivity {
         try {
             info = new JSONObject(stringInfo);
             tv_userid.setText(info.getString("id"));
-            tv_userclear.setText("획득한 도장 : " + info.getString("clear") + "개");
+            tv_userclear.setText("획득한 도장 : " + info.getString("clear") + "개"); //1
 
         } catch (JSONException e) {
             e.printStackTrace();
