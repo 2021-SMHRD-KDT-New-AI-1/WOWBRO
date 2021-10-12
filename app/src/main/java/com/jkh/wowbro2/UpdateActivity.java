@@ -65,7 +65,7 @@ public class UpdateActivity extends AppCompatActivity {
                 String pw2 = edit_pw2.getText().toString();
                 String nick = edit_nick.getText().toString();
 
-                String url = "http://172.30.1.26:3002/Update?id=";
+                String url = "http://10.0.2.2:3002/Update?id=";
                 url += id;
                 url += "&pw=" + pw;
                 url += "&nick=" + nick;
@@ -91,7 +91,8 @@ public class UpdateActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"비밀번호가 일치해야 합니다.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),"회원수정 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(UpdateActivity.this, UserDashboard.class);
+                    Intent intent = new Intent(UpdateActivity.this, LoginActivity.class);
+
                     startActivity(intent);
                 }
             }
@@ -101,7 +102,7 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String id = user_id;
-                String url = "http://172.30.1.26:3002/Delete?id=";
+                String url = "http://10.0.2.2:3002/Delete?id=";
                 url += id;
 
                 StringRequest request = new StringRequest(
