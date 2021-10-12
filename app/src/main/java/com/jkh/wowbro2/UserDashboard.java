@@ -77,10 +77,6 @@ public class UserDashboard extends AppCompatActivity {
         JSONObject info = null;
         try {
             info = new JSONObject(stringInfo);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
             tv_welcome.setText(info.getString("id") + "님 환영합니다!");
         } catch (JSONException e) {
             e.printStackTrace();

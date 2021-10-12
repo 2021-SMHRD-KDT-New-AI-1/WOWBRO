@@ -1,6 +1,7 @@
 package com.jkh.wowbro2;
 
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 
 public class SignUpActivity extends AppCompatActivity {
     EditText edit_id, edit_pw, edit_pw2, edit_nick;
