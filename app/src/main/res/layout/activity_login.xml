@@ -24,7 +24,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="411dp"
-        android:layout_height="580dp"
+        android:layout_height="530dp"
         android:background="@drawable/vie_bg"
         android:padding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_pw"
-            app:layout_constraintVertical_bias="1.2" />
+            app:layout_constraintVertical_bias="4" />
 
         <TextView
             android:id="@+id/textView6"

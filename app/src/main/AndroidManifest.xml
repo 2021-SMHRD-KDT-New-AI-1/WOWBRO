@@ -13,39 +13,61 @@
         android:theme="@style/SplashTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MypageActivity"
-            android:exported="true" />
+            android:name=".storyActivity"
+            android:exported="true" >
 
+
+        </activity>
+        <activity
+            android:name=".MypageActivity"
+            android:exported="true" >
+
+
+
+
+
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".LoginActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+
         </activity>
         <activity
             android:name=".TutorialActivity"
             android:exported="true" />
         <activity
             android:name=".UserDashboard"
-            android:exported="true" />
+            android:exported="true">
+
+
+
+        </activity>
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".ThemeActivity1"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
     </application>
 
 </manifest>
