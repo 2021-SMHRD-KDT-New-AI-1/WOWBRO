@@ -123,7 +123,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_pw2" />
 
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_update"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginBottom="50dp"
@@ -138,7 +138,7 @@
             app:layout_constraintVertical_bias="0.988" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/mypage_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/godoroundedr"

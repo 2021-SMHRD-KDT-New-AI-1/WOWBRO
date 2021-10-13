@@ -2,7 +2,6 @@ package com.jkh.wowbro2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+
 public class SignUpActivity extends AppCompatActivity {
     EditText edit_id, edit_pw, edit_pw2, edit_nick;
     Button btn_register;
@@ -27,7 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        btn_register = findViewById(R.id.btn_register);
+        btn_register = findViewById(R.id.btn_update);
         edit_id = findViewById(R.id.edit_id);
         edit_pw = findViewById(R.id.edit_pw);
         edit_pw2 = findViewById(R.id.edit_pw2);
@@ -44,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String pw = edit_pw.getText().toString();
                 String pw2 = edit_pw2.getText().toString();
                 String nick = edit_nick.getText().toString();
-                String url = "http://172.30.1.18:3002/Gaip?id=";
+                String url = "http://10.0.2.2:3002/Gaip?id=";
                 url += id;
                 url += "&pw=" + pw;
                 url += "&nick=" + nick;
@@ -62,7 +62,7 @@ public class SignUpActivity extends AppCompatActivity {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-
+                                error.printStackTrace();
                             }
                         }
                 );
