@@ -5,6 +5,17 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +23,8 @@ public class ThemeActivity1 extends AppCompatActivity {
 
     ListView lv_course;
     List<CourseVO1> data;
+    RequestQueue requestQueue;
+    JSONArray desInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,18 +34,51 @@ public class ThemeActivity1 extends AppCompatActivity {
         lv_course = findViewById(R.id.lv_course2);
         data = new ArrayList<CourseVO1>();
 
-        data.add(new CourseVO1(R.drawable.y1,"펭귄마을", "광주 남구 천변좌로 446번길 7"));
-        data.add(new CourseVO1(R.drawable.y2,"공예거리", "광주 남구 오기원길 20-13"));
-        data.add(new CourseVO1(R.drawable.y9,"이이남스튜디오", "광주 남구 제중로47번길 10"));
-        data.add(new CourseVO1(R.drawable.y4,"우일선선교사사택", "광주 남구 제중로 47번길 22-22"));
-        data.add(new CourseVO1(R.drawable.y6,"오웬기념각", "광주 남구 백서로 70번길 6"));
-        data.add(new CourseVO1(R.drawable.y7,"사직공원", "광주 남구 사직길 49-1"));
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
 
-        CourseAdapter1 adapter = new CourseAdapter1(getApplicationContext(),
-                R.layout.courselist, data);
+        String url = "http://10.0.2.2:3002/Yanglim";
+        StringRequest request = new StringRequest(
+                Request.Method.GET,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            desInfo = new JSONArray(response);
+                            for (int i = 0;i<desInfo.length();i++) {
+                                JSONObject info = null;
+                                String imgPath = "";
+                                String desName = "";
+                                String desAddress = "";
+                                try {
+                                    info = (JSONObject) desInfo.get(i);
+                                    imgPath = info.getString("desImagePath");
+                                    desName = info.getString("desName");
+                                    desAddress = info.getString("desAddress");
+                                    data.add(new CourseVO1(imgPath, desName, desAddress));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            CourseAdapter1 adapter = new CourseAdapter1(getApplicationContext(),
+                                    R.layout.courselist, data);
 
-        lv_course.setAdapter(adapter);
+                            lv_course.setAdapter(adapter);
 
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
+                    }
+                }
+        );
+        requestQueue.add(request);
     }
 }
