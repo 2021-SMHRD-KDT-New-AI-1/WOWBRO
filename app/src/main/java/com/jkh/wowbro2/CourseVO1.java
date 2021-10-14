@@ -1,6 +1,8 @@
 package com.jkh.wowbro2;
 
-public class CourseVO1 {
+import java.io.Serializable;
+
+public class CourseVO1 implements Serializable {
 
     private String imgPath;
     private String name;
