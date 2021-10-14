@@ -1,20 +1,22 @@
 package com.jkh.wowbro2;
 
-public class CourseVO1 {
+import java.io.Serializable;
 
-    private int img;
+public class CourseVO1 implements Serializable {
+
+    private String imgPath;
     private String name;
     private String location;
 
 
-    public CourseVO1(int img, String name, String location){
-        this.img = img;
+    public CourseVO1(String imgPath, String name, String location){
+        this.imgPath = imgPath;
         this.name = name;
         this.location = location;
     }
 
-    public int getImg() {
-        return img;
+    public String getImgPath() {
+        return imgPath;
     }
 
     public String getName() {

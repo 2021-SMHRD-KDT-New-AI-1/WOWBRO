@@ -24,7 +24,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
      ArrayList<FeaturedHelperClass> featuredLocations ;
      Context context;
 
-
+//
 
      public FeaturedAdapter(ArrayList<FeaturedHelperClass> featuredLocations, Context context) {
           this.featuredLocations = featuredLocations;

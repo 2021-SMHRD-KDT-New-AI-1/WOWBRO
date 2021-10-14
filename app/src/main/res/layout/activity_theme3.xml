@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="265dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="5dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="#FFFFFF"
+                android:elevation="40dp"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="265dp"
+                        android:background="@drawable/course_7"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/stamp1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="70dp"
+                        app:srcCompat="@drawable/bird" />
+
+                    <ImageView
+                        android:id="@+id/stamp2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+
+                        android:layout_marginLeft="95dp"
+                        android:layout_marginTop="135dp"
+                        app:srcCompat="@drawable/bird"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/stamp3"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+
+                        android:layout_marginLeft="160dp"
+                        android:layout_marginTop="90dp"
+                        app:srcCompat="@drawable/bird" />
+
+                    <ImageView
+                        android:id="@+id/stamp4"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+
+                        android:layout_marginLeft="230dp"
+                        android:layout_marginTop="50dp"
+                        app:srcCompat="@drawable/bird" />
+
+
+                    <ImageView
+                        android:id="@+id/stamp5"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+
+                        android:layout_marginLeft="280dp"
+                        android:layout_marginTop="115dp"
+                        app:srcCompat="@drawable/bird" />
+
+
+                </FrameLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <ListView
+                android:id="@+id/lv_course3"
+                android:layout_width="match_parent"
+                android:layout_height="620dp"
+                android:background="@color/white"
+                android:divider="#F7CACACA"
+                android:dividerHeight="2.5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

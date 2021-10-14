@@ -2,12 +2,15 @@ package com.jkh.wowbro2;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -56,12 +59,10 @@ public class CourseAdapter1 extends BaseAdapter {
        TextView tv_location = view.findViewById(R.id.tv_location);
        ImageView img_2 = view.findViewById(R.id.img_2);
 
-       img_1.setImageResource(data.get(i).getImg());
+       Glide.with(context).load(data.get(i).getImgPath()).into(img_1);
        img_clear.setImageResource(R.drawable.clear2);
        img_2.setImageResource(R.drawable.thumb);
        img_clear.setColorFilter(Color.parseColor("#FFD740"));
-
-
 
        tv_name.setText(data.get(i).getName());
        tv_location.setText(data.get(i).getLocation());
