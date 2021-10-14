@@ -66,7 +66,7 @@ public class ThemeActivity1 extends AppCompatActivity {
                                     data.add(new CourseVO1(imgPath, desName, desAddress));
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                }
+                                }//
                             }
                             CourseAdapter1 adapter = new CourseAdapter1(getApplicationContext(),
                                     R.layout.courselist, data);
