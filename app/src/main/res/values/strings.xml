@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TestSlideApp</string>
-    <string name="next">다음</string>
-    <string name="skip">건너띄기</string>
-    <string name="start">시작</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">START</string>
 
     <string name="page_1_title">첫번째 페이지입니다.</string>
     <string name="page_1_desc">첫번째 페이지 내용입니다.</string>
