@@ -1,7 +1,10 @@
 package com.jkh.wowbro2;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -80,5 +83,12 @@ public class ThemeActivity1 extends AppCompatActivity {
                 }
         );
         requestQueue.add(request);
+
+//        lv_course.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(ThemeActivity1.this, i + " 번째 선택! ", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }
