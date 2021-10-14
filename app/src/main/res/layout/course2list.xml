@@ -5,74 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <ImageView
-        android:id="@+id/img_1"
+        android:id="@+id/img_3"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-
-        android:rotation="0"
-        android:visibility="visible"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/yangrim" />
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_name2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="17dp"
         android:fontFamily="@font/scdream8"
-        android:text="펭귄마을"
-        android:textAlignment="viewStart"
-        android:textAllCaps="true"
+        android:text="비엔날레"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/img_1"
-        app:layout_constraintTop_toTopOf="@+id/img_1" />
+        app:layout_constraintStart_toEndOf="@+id/img_3"
+        app:layout_constraintTop_toTopOf="@+id/img_3" />
 
     <TextView
-        android:id="@+id/tv_location"
+        android:id="@+id/tv_location2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/noto1"
-        android:text="광주 남구 천변좌로 446번길 7"
+        android:text="광주 북구 비엔날레로 111"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/img_2"
-        app:layout_constraintStart_toEndOf="@+id/img_2"
-        app:layout_constraintTop_toTopOf="@+id/img_2" />
+        app:layout_constraintBottom_toBottomOf="@+id/img_4"
+        app:layout_constraintStart_toEndOf="@+id/img_4"
+        app:layout_constraintTop_toTopOf="@+id/img_4" />
 
     <ImageView
-        android:id="@+id/img_2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/img_1"
-        app:layout_constraintStart_toEndOf="@+id/img_1"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/thumb" />
-
-    <ImageView
-        android:id="@+id/img_clear"
+        android:id="@+id/img_clear2"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tv_location"
+        app:layout_constraintBottom_toTopOf="@+id/tv_location2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_name"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/clear2" />
+        app:layout_constraintTop_toTopOf="@id/tv_name2"
+        app:layout_constraintVertical_bias="0"
+        tools:srcCompat="@tools:sample/avatars" />
 
+    <ImageView
+        android:id="@+id/img_4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/img_3"
+        app:layout_constraintStart_toEndOf="@+id/img_3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name2"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/thumb" />
 </androidx.constraintlayout.widget.ConstraintLayout>
