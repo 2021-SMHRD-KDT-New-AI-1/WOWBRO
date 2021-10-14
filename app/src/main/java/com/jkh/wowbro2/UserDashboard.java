@@ -123,7 +123,7 @@ public class UserDashboard extends AppCompatActivity {
 
         ArrayList<Location> arrayList = new ArrayList<>();
 
-        arrayList.add(new Location(R.drawable.yangrim2, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
+        arrayList.add(new Location(R.drawable.yongbong1, "용봉 초록 습지대", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
         arrayList.add(new Location(R.drawable.yangrim4, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
         arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
         arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
