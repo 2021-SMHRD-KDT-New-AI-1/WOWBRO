@@ -13,22 +13,34 @@
         android:theme="@style/SplashTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ThemeActivity3"
+            android:name=".MapActivity"
             android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
 
         </activity>
         <activity
+            android:name=".ThemeActivity3"
+            android:exported="true"></activity>
+        <activity
             android:name=".infoActivity"
-            android:exported="true" >
+            android:exported="true">
 
         </activity>
         <activity
             android:name=".ThemeActivity2"
-            android:exported="true">
+            android:exported="true"></activity>
 
-        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCMVdFr3YxnCzNX3-oA32PUCOrVYb3ORDY" />
+
         <activity
             android:name=".UpdateActivity"
             android:exported="true" />
@@ -40,18 +52,10 @@
             android:exported="true" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".TutorialActivity"
             android:exported="true" />

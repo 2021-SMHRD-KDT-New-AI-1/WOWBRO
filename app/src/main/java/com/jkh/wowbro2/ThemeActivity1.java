@@ -72,7 +72,7 @@ public class ThemeActivity1 extends AppCompatActivity {
                                     Log.d("결과", data.get(i).toString());
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                }
+                                }//
                             }
                             CourseAdapter1 adapter = new CourseAdapter1(getApplicationContext(),
                                     R.layout.courselist, data);
