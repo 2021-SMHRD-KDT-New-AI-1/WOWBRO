@@ -66,8 +66,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/story_img"
                 app:layout_constraintEnd_toStartOf="@+id/btn_info"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_qr"
