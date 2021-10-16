@@ -3,6 +3,7 @@ package com.jkh.wowbro2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -58,12 +59,17 @@ public class ThemeActivity1 extends AppCompatActivity {
                                 String imgPath = "";
                                 String desName = "";
                                 String desAddress = "";
+                                String story = "";
+                                String sub_name = "";
                                 try {
                                     info = (JSONObject) desInfo.get(i);
                                     imgPath = info.getString("desImagePath");
                                     desName = info.getString("desName");
                                     desAddress = info.getString("desAddress");
-                                    data.add(new CourseVO1(imgPath, desName, desAddress));
+                                    story = info.getString("story");
+                                    sub_name = info.getString("sub_name");
+                                    data.add(new CourseVO1(imgPath, desName, desAddress, story, sub_name));
+                                    Log.d("결과", data.get(i).toString());
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }//
