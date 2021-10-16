@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebView;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -131,6 +133,19 @@ public class UserDashboard extends AppCompatActivity {
         LocationAdapter locationAdapter = new LocationAdapter(this, R.layout.list_card_design, arrayList);
 
         listView.setAdapter(locationAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                if(position == 0 ){
+                Intent intent = new Intent(UserDashboard.this, infoActivity.class);
+                }
+
+
+            }
+        });
+
 
 
         imageView = findViewById(R.id.img_menu);
