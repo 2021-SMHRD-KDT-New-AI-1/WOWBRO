@@ -60,7 +60,7 @@ public class ThemeActivity1 extends AppCompatActivity {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
-        String url = "http://10.0.2.2:3002/Yanglim";
+        String url = "http://10.0.2.2:3002/selectDes";
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 url,
@@ -77,8 +77,9 @@ public class ThemeActivity1 extends AppCompatActivity {
                                 String desAddress = "";
                                 String story = "";
                                 String sub_name = "";
-                                int like_check = 0;
+                                int like_check ;
                                 String page = "";
+                                int qr_check ;
                                 try {
                                     info = (JSONObject) desInfo.get(i);
                                     user_id = info.getString("user_id");
@@ -89,8 +90,16 @@ public class ThemeActivity1 extends AppCompatActivity {
                                     sub_name = info.getString("sub_name");
                                     like_check = info.getInt("like_check");
                                     page = info.getString("page");
+                                    qr_check =info.getInt("qr_check");
                                     data.add(new CourseVO1(user_id, imgPath, desName, desAddress, story, sub_name, like_check, page));
-                                    Log.d("결과", data.get(i).toString());
+
+                                    if(qr_check==1 && desName.equals("펭귄마을")){
+                                        stamp1.setVisibility(View.VISIBLE);
+                                    }
+                                    //디비에 들어오는대로 이름값이랑 맞춰서 비저블 해주면 끝
+
+
+
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }//
