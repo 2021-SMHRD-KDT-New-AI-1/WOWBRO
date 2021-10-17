@@ -71,6 +71,7 @@
             android:textColor="#262626"
             android:textColorHint="#545353"
             android:textSize="14sp"
+            android:inputType="textPassword"
 
             app:flow_horizontalBias=".5"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class ThemeActivity1 extends AppCompatActivity {
     List<CourseVO1> data;
     RequestQueue requestQueue;
     JSONArray desInfo;
+    ImageView img_map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class ThemeActivity1 extends AppCompatActivity {
         setContentView(R.layout.activity_theme);
 
         lv_course = findViewById(R.id.lv_course2);
+        img_map = findViewById(R.id.img_map);
         data = new ArrayList<CourseVO1>();
 
         if (requestQueue == null) {
@@ -105,6 +108,14 @@ public class ThemeActivity1 extends AppCompatActivity {
                 Intent intent = new Intent(ThemeActivity1.this, storyActivity.class);
                 intent.putExtra("info", data.get(i));
                 intent.putExtra("like_check", data.get(i).getLike_check());
+                startActivity(intent);
+            }
+        });
+
+        img_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThemeActivity1.this, MapActivity.class);
                 startActivity(intent);
             }
         });

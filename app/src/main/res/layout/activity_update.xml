@@ -48,7 +48,7 @@
             android:paddingBottom="8dp"
             android:textColor="@color/black"
             android:textColorHint="#545353"
-
+            android:inputType="textPassword"
             android:textSize="14sp"
             app:flow_horizontalBias=".5"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -67,7 +67,7 @@
             android:paddingTop="8dp"
             android:paddingRight="20dp"
             android:paddingBottom="8dp"
-
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHint="#545353"
             android:textSize="14sp"
