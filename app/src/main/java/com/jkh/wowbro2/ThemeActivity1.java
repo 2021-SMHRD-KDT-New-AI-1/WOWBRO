@@ -45,7 +45,7 @@ public class ThemeActivity1 extends AppCompatActivity {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
-        String url = "http://10.0.2.2:3002/Yanglim";
+        String url = "http://10.0.2.2:3002/auth";
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 url,
@@ -61,6 +61,7 @@ public class ThemeActivity1 extends AppCompatActivity {
                                 String desAddress = "";
                                 String story = "";
                                 String sub_name = "";
+                                int like_check =0;
                                 try {
                                     info = (JSONObject) desInfo.get(i);
                                     imgPath = info.getString("desImagePath");
@@ -68,11 +69,13 @@ public class ThemeActivity1 extends AppCompatActivity {
                                     desAddress = info.getString("desAddress");
                                     story = info.getString("story");
                                     sub_name = info.getString("sub_name");
-                                    data.add(new CourseVO1(imgPath, desName, desAddress, story, sub_name));
-                                    Log.d("결과", data.get(i).toString());
+                                    like_check = info.getInt("like_check"
+                                    );
+
+
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                }//
+                                }
                             }
                             CourseAdapter1 adapter = new CourseAdapter1(getApplicationContext(),
                                     R.layout.courselist, data);

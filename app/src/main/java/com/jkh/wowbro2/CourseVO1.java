@@ -9,14 +9,16 @@ public class CourseVO1 implements Serializable {
     private String location;
     private String story;
     private String sub_name;
+    private int like_check;
 
 
-    public CourseVO1(String imgPath, String name, String location, String story, String sub_name){
+    public CourseVO1(String imgPath, String name, String location, String story, String sub_name, int like_check){
         this.imgPath = imgPath;
         this.name = name;
         this.location = location;
         this.story = story;
         this.sub_name = sub_name;
+        this.like_check = like_check;
     }
 
     public String getImgPath() {
@@ -37,4 +39,6 @@ public class CourseVO1 implements Serializable {
     public String getSub_name() {
         return sub_name;
     }
+    public int getLike_check() { return like_check; }
+
 }

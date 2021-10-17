@@ -26,6 +26,7 @@ public class storyActivity extends AppCompatActivity {
     ImageView story_backimg, story_img;
     FloatingActionButton btn_like;
     RequestQueue requestQueue;
+    int onOff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +51,23 @@ public class storyActivity extends AppCompatActivity {
         travel_story.setText(desInfo.getStory());
         Glide.with(this).load(desInfo.getImgPath()).into(story_img);
 
+        int like = desInfo.getLike_check();
+        if (like==0){
+            btn_like.setImageResource(R.drawable.ic_baseline_favorite_border_24);}
+        else if(like==1){
+            btn_like.setImageResource(R.drawable.ic_baseline_favorite_24);
+        }
+
+
         story_backimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+
+
+
 
         SharedPreferences prefs = getSharedPreferences("shared", MODE_PRIVATE);
         String infos = prefs.getString("INFO",null);
@@ -69,21 +81,21 @@ public class storyActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        final boolean[] onOff = {false};
-        btn_like.setImageResource(R.drawable.ic_baseline_favorite_border_24);
+
+
 
         String User_id = user_id;
         btn_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 StringRequest request = null;
-                if (onOff[0] == false) {
+                if (onOff==0) {
                     String url = "http://10.0.2.2:3002/Like";
                     String name = desInfo.getName();
                     String id = User_id;
                     url += "?name=" + name;
                     url += "&id=" + id;
-                    onOff[0] = true;
+
                     btn_like.setImageResource(R.drawable.ic_baseline_favorite_24);
                     request = new StringRequest(
                             Request.Method.GET,
@@ -102,14 +114,13 @@ public class storyActivity extends AppCompatActivity {
                             }
 
                     );
-
-                } else {
+                    onOff=1;
+                } else if(onOff==1) {
                     String url = "http://10.0.2.2:3002/Dislike";
                     String name = desInfo.getName();
                     String id = User_id;
                     url += "?name=" + name;
                     url += "&id=" + id;
-                    onOff[0] = false;
                     btn_like.setImageResource(R.drawable.ic_baseline_favorite_border_24);
                     request = new StringRequest(
                             Request.Method.GET,
@@ -128,6 +139,7 @@ public class storyActivity extends AppCompatActivity {
                             }
 
                     );
+                    onOff=0;
                 }
                 requestQueue.add(request);
             }

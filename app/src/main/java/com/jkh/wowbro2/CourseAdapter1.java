@@ -67,6 +67,7 @@ public class CourseAdapter1 extends BaseAdapter {
        tv_name.setText(data.get(i).getName());
        tv_location.setText(data.get(i).getLocation());
 
+
         return view;
     }
 }
