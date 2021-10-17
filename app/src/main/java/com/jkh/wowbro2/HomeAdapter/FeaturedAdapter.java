@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jkh.wowbro2.R;
 import com.jkh.wowbro2.ThemeActivity1;
+import com.jkh.wowbro2.ThemeActivity2;
+import com.jkh.wowbro2.ThemeActivity3;
 
 import java.util.ArrayList;
 
@@ -83,6 +85,16 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
 
                          if(getAdapterPosition()==0){
                               Intent intent = new Intent(context, ThemeActivity1.class);
+                              intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                              context.startActivity(intent);
+                         }
+                         if(getAdapterPosition()==1){
+                              Intent intent = new Intent(context, ThemeActivity2.class);
+                              intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                              context.startActivity(intent);
+                         }
+                         if(getAdapterPosition()==2){
+                              Intent intent = new Intent(context, ThemeActivity3.class);
                               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                               context.startActivity(intent);
                          }

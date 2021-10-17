@@ -2,15 +2,15 @@ package com.jkh.wowbro2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class infoActivity extends AppCompatActivity {
+public class info4Activity extends AppCompatActivity {
 
     WebView webview;
+    String url = "https://m.place.naver.com/restaurant/1357740552/home";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +18,11 @@ public class infoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         webview = findViewById(R.id.webview);
-        Intent page = getIntent();
         webview.setWebViewClient(new WebViewClient());
-
-        webview.loadUrl(page.getStringExtra("page"));
-
+        webview.loadUrl(url);
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
 
 
 

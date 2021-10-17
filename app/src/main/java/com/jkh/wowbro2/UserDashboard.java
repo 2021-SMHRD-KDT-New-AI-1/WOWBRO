@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -132,6 +133,24 @@ public class UserDashboard extends AppCompatActivity {
 
         listView.setAdapter(locationAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i == 0){
+                    Intent intent = new Intent(UserDashboard.this, info2Activity.class);
+                    startActivity(intent);
+                }
+                if(i ==1){
+                    Intent intent = new Intent(UserDashboard.this, info3Activity.class);
+                    startActivity(intent);
+                }
+                if(i ==2 ){
+                    Intent intent = new Intent(UserDashboard.this, info4Activity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
 
         imageView = findViewById(R.id.img_menu);
         imageView.setColorFilter(Color.parseColor("#FF665F5F"));
@@ -160,10 +179,9 @@ public class UserDashboard extends AppCompatActivity {
         ArrayList<FeaturedHelperClass> featuredLocations = new ArrayList<>();
 
         featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.art1,"예술 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.art1,"용봉동 이야기"));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.chungjang,"충장동 이야기"));
+
 
         adapter = new FeaturedAdapter(featuredLocations,getApplicationContext());
         featuredRecycler.setAdapter(adapter);

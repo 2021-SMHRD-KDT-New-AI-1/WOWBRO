@@ -69,6 +69,15 @@
         <activity
             android:name=".ThemeActivity1"
             android:exported="true" />
+        <activity
+            android:name=".info2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".info3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".info4Activity"
+            android:exported="true" />
     </application>
 
 </manifest>
