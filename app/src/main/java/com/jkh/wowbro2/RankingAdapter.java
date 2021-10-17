@@ -13,23 +13,21 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class CourseAdapter1 extends BaseAdapter {
+public class RankingAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private List<CourseVO1> data;
+    private List<RankingVO> data;
 
     private LayoutInflater inflater;
-
-    public CourseAdapter1(Context context, int layout, List<CourseVO1> data) {
+    public RankingAdapter(Context context, int layout, List<RankingVO> data) {
         this.context = context;
         this.layout = layout;
         this.data = data;
         inflater = (LayoutInflater) context.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE
         );
-    }
-
+}
     @Override
     public int getCount() {
         return data.size();
@@ -52,19 +50,14 @@ public class CourseAdapter1 extends BaseAdapter {
             view = inflater.inflate(layout, null);
         }
 
-        ImageView img_1 = view.findViewById(R.id.rank_img);
-        ImageView img_clear = view.findViewById(R.id.img_clear);
-        TextView tv_name = view.findViewById(R.id.tv_name);
-        TextView tv_location = view.findViewById(R.id.ranking_num);
-        ImageView img_2 = view.findViewById(R.id.img_2);
 
-        Glide.with(context).load(data.get(i).getImgPath()).into(img_1);
-        img_clear.setImageResource(R.drawable.clear2);
-        img_2.setImageResource(R.drawable.thumb);
-        img_clear.setColorFilter(Color.parseColor("#FFD740"));
+        ImageView rank_img = view.findViewById(R.id.rank_img);
+        TextView rank_name = view.findViewById(R.id.rank_name);
+        TextView ranking_num = view.findViewById(R.id.ranking_num);
+        Glide.with(context).load(data.get(i).getImgPath()).into(rank_img);
 
-        tv_name.setText(data.get(i).getName());
-        tv_location.setText(data.get(i).getLocation());
+        rank_name.setText(data.get(i).getDesName());
+        ranking_num.setText(String.valueOf(data.get(i).getLike_check()));
 
         return view;
     }

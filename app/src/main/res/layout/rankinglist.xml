@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/rank_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -23,16 +23,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/yangrim" />
+        app:srcCompat="@drawable/ic_baseline_people_24" />
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/rank_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="17dp"
         android:fontFamily="@font/scdream8"
-        android:text="펭귄마을"
+        android:text="여행지"
         android:textAlignment="viewStart"
         android:textAllCaps="true"
         android:textSize="25sp"
@@ -44,35 +44,27 @@
         android:id="@+id/ranking_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
         android:fontFamily="@font/noto1"
-        android:text="광주 남구 천변좌로 446번길 7"
+        android:text="0"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/img_2"
-        app:layout_constraintStart_toEndOf="@+id/img_2"
-        app:layout_constraintTop_toTopOf="@+id/img_2" />
-
-    <ImageView
-        android:id="@+id/img_2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rank_img"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rank_img"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/thumb" />
+        app:layout_constraintTop_toBottomOf="@+id/rank_name" />
 
-    <ImageView
-        android:id="@+id/img_clear"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/ranking_num"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_name"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/clear2" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/noto1"
+        android:text="좋아요"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rank_img"
+        app:layout_constraintTop_toBottomOf="@+id/rank_name" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

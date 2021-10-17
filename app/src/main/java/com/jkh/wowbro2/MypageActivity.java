@@ -16,7 +16,7 @@ import org.json.JSONObject;
 
 public class MypageActivity extends AppCompatActivity {
     TextView mypage_id, mypage_clear;
-    CardView cv_update, cv_logout;
+    CardView cv_update, cv_logout, cv_ranking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MypageActivity extends AppCompatActivity {
         mypage_clear = findViewById(R.id.mypage_clear);
         cv_update = findViewById(R.id.cv_update);
         cv_logout = findViewById(R.id.cv_logout);
+        cv_ranking =findViewById(R.id.cv_ranking);
 
         SharedPreferences prefs = getSharedPreferences("shared", MODE_PRIVATE);
         String info = prefs.getString("INFO",null);
@@ -39,6 +40,15 @@ public class MypageActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        cv_ranking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MypageActivity.this, RankingActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         cv_update.setOnClickListener(new View.OnClickListener() {
             @Override

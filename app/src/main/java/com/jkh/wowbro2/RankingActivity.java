@@ -27,10 +27,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThemeActivity1 extends AppCompatActivity {
+public class RankingActivity extends AppCompatActivity {
 
-    ListView lv_course;
-    List<CourseVO1> data;
+    ListView ranklist;
+    List<RankingVO> data;
     RequestQueue requestQueue;
     JSONArray desInfo;
     ImageView img_map;
@@ -38,11 +38,11 @@ public class ThemeActivity1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_theme);
+        setContentView(R.layout.activity_ranking);
 
-        lv_course = findViewById(R.id.lv_course2);
-        img_map = findViewById(R.id.img_map);
-        data = new ArrayList<CourseVO1>();
+        ranklist = findViewById(R.id.ranklist);
+
+        data = new ArrayList<RankingVO>();
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -65,28 +65,24 @@ public class ThemeActivity1 extends AppCompatActivity {
                                 String desAddress = "";
                                 String story = "";
                                 String sub_name = "";
-                                int like_check = 0;
+                                int like_check = 0 ;
                                 String page = "";
                                 try {
                                     info = (JSONObject) desInfo.get(i);
-                                    user_id = info.getString("user_id");
+
                                     imgPath = info.getString("desImagePath");
                                     desName = info.getString("desName");
-                                    desAddress = info.getString("desAddress");
-                                    story = info.getString("story");
-                                    sub_name = info.getString("sub_name");
                                     like_check = info.getInt("like_check");
-                                    page = info.getString("page");
-                                    data.add(new CourseVO1(user_id, imgPath, desName, desAddress, story, sub_name, like_check, page));
-                                    Log.d("결과", data.get(i).toString());
+                                    data.add(new RankingVO(imgPath, desName, like_check));
+
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                }//
+                                }
                             }
-                            CourseAdapter1 adapter = new CourseAdapter1(getApplicationContext(),
-                                    R.layout.courselist, data);
+                            RankingAdapter adapter = new RankingAdapter(getApplicationContext(),
+                                    R.layout.rankinglist, data);
 
-                            lv_course.setAdapter(adapter);
+                            ranklist.setAdapter(adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -102,22 +98,8 @@ public class ThemeActivity1 extends AppCompatActivity {
         );
         requestQueue.add(request);
 
-        lv_course.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ThemeActivity1.this, storyActivity.class);
-                intent.putExtra("info", data.get(i));
-                intent.putExtra("like_check", data.get(i).getLike_check());
-                startActivity(intent);
-            }
-        });
 
-        img_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ThemeActivity1.this, MapActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
     }
 }
