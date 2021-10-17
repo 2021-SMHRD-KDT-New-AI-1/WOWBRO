@@ -56,19 +56,25 @@ public class ThemeActivity1 extends AppCompatActivity {
                             desInfo = new JSONArray(response);
                             for (int i = 0;i<desInfo.length();i++) {
                                 JSONObject info = null;
+                                String user_id = "";
                                 String imgPath = "";
                                 String desName = "";
                                 String desAddress = "";
                                 String story = "";
                                 String sub_name = "";
+                                int like_check;
+                                String page = "";
                                 try {
                                     info = (JSONObject) desInfo.get(i);
+                                    user_id = info.getString("user_id");
                                     imgPath = info.getString("desImagePath");
                                     desName = info.getString("desName");
                                     desAddress = info.getString("desAddress");
                                     story = info.getString("story");
                                     sub_name = info.getString("sub_name");
-                                    data.add(new CourseVO1(imgPath, desName, desAddress, story, sub_name));
+                                    like_check = info.getInt("like_check");
+                                    page = info.getString("page");
+                                    data.add(new CourseVO1(user_id, imgPath, desName, desAddress, story, sub_name, like_check, page));
                                     Log.d("결과", data.get(i).toString());
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -98,6 +104,7 @@ public class ThemeActivity1 extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(ThemeActivity1.this, storyActivity.class);
                 intent.putExtra("info", data.get(i));
+                intent.putExtra("like_check", data.get(i).getLike_check());
                 startActivity(intent);
             }
         });
