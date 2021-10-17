@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,7 +25,7 @@ import org.json.JSONObject;
 public class storyActivity extends AppCompatActivity {
     TextView travel_name, travel_desc, travel_story;
     ImageView story_backimg, story_img;
-    FloatingActionButton btn_like, btn_info;
+    FloatingActionButton btn_like, btn_info, btn_qr;
     RequestQueue requestQueue;
 
     @Override
@@ -39,6 +40,7 @@ public class storyActivity extends AppCompatActivity {
         story_img = findViewById(R.id.story_img);
         btn_like = findViewById(R.id.btn_like);
         btn_info = findViewById(R.id.btn_info);
+        btn_qr = findViewById(R.id.btn_qr);
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -131,6 +133,7 @@ public class storyActivity extends AppCompatActivity {
 
                     );
                 }
+                Toast.makeText(getApplicationContext(),"여행지 랭킹에 집계되었습니다.",Toast.LENGTH_SHORT).show();
                 requestQueue.add(request);
             }
         });
@@ -141,6 +144,14 @@ public class storyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(storyActivity.this, infoActivity.class);
                 intent.putExtra("page", Page);
+                startActivity(intent);
+            }
+        });
+
+        btn_qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(storyActivity.this, scanQR.class);
                 startActivity(intent);
             }
         });

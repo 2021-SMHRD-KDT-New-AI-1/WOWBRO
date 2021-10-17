@@ -28,9 +28,5 @@ public class infoActivity extends AppCompatActivity {
 
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
-
-
-
     }
 }
