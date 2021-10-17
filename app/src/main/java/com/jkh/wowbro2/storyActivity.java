@@ -74,7 +74,7 @@ public class storyActivity extends AppCompatActivity {
         }
 
         final boolean[] onOff = {false};
-        btn_like.setImageResource(R.drawable.ic_baseline_favorite_border_24);
+        btn_like.setImageResource(R.drawable.ic_baseline_thumb_up_24);
 
         String User_id = user_id;
         btn_like.setOnClickListener(new View.OnClickListener() {
