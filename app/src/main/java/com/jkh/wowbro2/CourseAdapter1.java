@@ -9,7 +9,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -18,8 +28,11 @@ public class CourseAdapter1 extends BaseAdapter {
     private Context context;
     private int layout;
     private List<CourseVO1> data;
-
+    RequestQueue requestQueue;
+    JSONArray desInfo;
     private LayoutInflater inflater;
+    Context here ;
+
 
     public CourseAdapter1(Context context, int layout, List<CourseVO1> data) {
         this.context = context;
@@ -65,6 +78,76 @@ public class CourseAdapter1 extends BaseAdapter {
 
         tv_name.setText(data.get(i).getName());
         tv_location.setText(data.get(i).getLocation());
+
+        here = context.getApplicationContext();
+
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(here);
+        }
+
+        String url = "http://10.0.2.2:3002/selectDes";
+        StringRequest request = new StringRequest(
+                Request.Method.GET,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            desInfo = new JSONArray(response);
+                            for (int i = 0;i<desInfo.length();i++) {
+                                JSONObject info = null;
+                                String user_id = "";
+                                String imgPath = "";
+                                String desName = "";
+                                String desAddress = "";
+                                String story = "";
+                                String sub_name = "";
+                                int like_check ;
+                                String page = "";
+                                int qr_check ;
+                                try {
+                                    info = (JSONObject) desInfo.get(i);
+                                    user_id = info.getString("user_id");
+                                    imgPath = info.getString("desImagePath");
+                                    desName = info.getString("desName");
+                                    desAddress = info.getString("desAddress");
+                                    story = info.getString("story");
+                                    sub_name = info.getString("sub_name");
+                                    like_check = info.getInt("like_check");
+                                    page = info.getString("page");
+                                    qr_check =info.getInt("qr_check");
+
+                                    if(qr_check==1 && desName.equals("펭귄마을")){
+                                        img_clear.setImageResource(R.drawable.stamp);
+                                        img_clear.setColorFilter(Color.parseColor("#fd5151"));
+                                    }
+                                    //디비에 들어오는대로 이름값이랑 맞춰서 그림바꿔주면 됩니다.
+
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        requestQueue.add(request);
+
+
 
         return view;
     }
