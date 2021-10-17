@@ -4,23 +4,28 @@ import java.io.Serializable;
 
 public class CourseVO1 implements Serializable {
 
+    private String user_id;
     private String imgPath;
     private String name;
     private String location;
     private String story;
     private String sub_name;
     private int like_check;
+    private String page;
 
 
-    public CourseVO1(String imgPath, String name, String location, String story, String sub_name, int like_check){
+    public CourseVO1(String user_id, String imgPath, String name, String location, String story, String sub_name, int like_check, String page){
+        this.user_id = user_id;
         this.imgPath = imgPath;
         this.name = name;
         this.location = location;
         this.story = story;
         this.sub_name = sub_name;
         this.like_check = like_check;
+        this.page = page;
     }
 
+    public String getUser_id() {return user_id;}
     public String getImgPath() {
         return imgPath;
     }
@@ -39,6 +44,6 @@ public class CourseVO1 implements Serializable {
     public String getSub_name() {
         return sub_name;
     }
-    public int getLike_check() { return like_check; }
-
+    public String getPage() {return page;}
+    public int getLike_check() {return like_check;}
 }

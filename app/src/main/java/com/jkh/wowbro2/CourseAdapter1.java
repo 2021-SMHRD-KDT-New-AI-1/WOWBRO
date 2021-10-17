@@ -49,23 +49,23 @@ public class CourseAdapter1 extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-       if(view ==null){
-           view = inflater.inflate(layout, null);
-       }
+        if(view ==null){
+            view = inflater.inflate(layout, null);
+        }
 
-       ImageView img_1 = view.findViewById(R.id.img_1);
-       ImageView img_clear = view.findViewById(R.id.img_clear);
-       TextView tv_name = view.findViewById(R.id.tv_name);
-       TextView tv_location = view.findViewById(R.id.tv_location);
-       ImageView img_2 = view.findViewById(R.id.img_2);
+        ImageView img_1 = view.findViewById(R.id.img_1);
+        ImageView img_clear = view.findViewById(R.id.img_clear);
+        TextView tv_name = view.findViewById(R.id.tv_name);
+        TextView tv_location = view.findViewById(R.id.tv_location);
+        ImageView img_2 = view.findViewById(R.id.img_2);
 
-       Glide.with(context).load(data.get(i).getImgPath()).into(img_1);
-       img_clear.setImageResource(R.drawable.clear2);
-       img_2.setImageResource(R.drawable.thumb);
-       img_clear.setColorFilter(Color.parseColor("#FFD740"));
+        Glide.with(context).load(data.get(i).getImgPath()).into(img_1);
+        img_clear.setImageResource(R.drawable.clear2);
+        img_2.setImageResource(R.drawable.thumb);
+        img_clear.setColorFilter(Color.parseColor("#FFD740"));
 
-       tv_name.setText(data.get(i).getName());
-       tv_location.setText(data.get(i).getLocation());
+        tv_name.setText(data.get(i).getName());
+        tv_location.setText(data.get(i).getLocation());
 
 
         return view;

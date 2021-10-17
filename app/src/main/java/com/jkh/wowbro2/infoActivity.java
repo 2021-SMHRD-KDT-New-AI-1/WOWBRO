@@ -3,6 +3,7 @@ package com.jkh.wowbro2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -20,9 +21,10 @@ public class infoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         webview = findViewById(R.id.webview);
+        Intent page = getIntent();
         webview.setWebViewClient(new WebViewClient());
 
-        webview.loadUrl("https://m.place.naver.com/place/1894268974/home?entry=pll");
+        webview.loadUrl(page.getStringExtra("page"));
 
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);

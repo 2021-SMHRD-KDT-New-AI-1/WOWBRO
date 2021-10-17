@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class storyActivity extends AppCompatActivity {
     TextView travel_name, travel_desc, travel_story;
     ImageView story_backimg, story_img;
-    FloatingActionButton btn_like;
+    FloatingActionButton btn_like, btn_info;
     RequestQueue requestQueue;
     int onOff;
 
@@ -39,6 +39,7 @@ public class storyActivity extends AppCompatActivity {
         travel_story = findViewById(R.id.travel_story);
         story_img = findViewById(R.id.story_img);
         btn_like = findViewById(R.id.btn_like);
+        btn_info = findViewById(R.id.btn_info);
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -50,6 +51,7 @@ public class storyActivity extends AppCompatActivity {
         travel_desc.setText(desInfo.getSub_name());
         travel_story.setText(desInfo.getStory());
         Glide.with(this).load(desInfo.getImgPath()).into(story_img);
+        String page = desInfo.getPage();
 
         int like = desInfo.getLike_check();
         if (like==0){
@@ -142,6 +144,16 @@ public class storyActivity extends AppCompatActivity {
                     onOff=0;
                 }
                 requestQueue.add(request);
+            }
+        });
+
+        String Page = page;
+        btn_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(storyActivity.this, infoActivity.class);
+                intent.putExtra("page", Page);
+                startActivity(intent);
             }
         });
 
