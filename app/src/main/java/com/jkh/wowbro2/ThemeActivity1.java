@@ -33,7 +33,7 @@ public class ThemeActivity1 extends AppCompatActivity {
     List<CourseVO1> data;
     RequestQueue requestQueue;
     JSONArray desInfo;
-    ImageView img_map;
+    ImageView img_map, stamp1, stamp2, stamp3,stamp4,stamp5,stamp6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,18 @@ public class ThemeActivity1 extends AppCompatActivity {
         lv_course = findViewById(R.id.lv_course2);
         img_map = findViewById(R.id.img_map);
         data = new ArrayList<CourseVO1>();
+        stamp1 = findViewById(R.id.stamp1);
+        stamp2= findViewById(R.id.stamp2);
+        stamp3 = findViewById(R.id.stamp3);
+        stamp4 = findViewById(R.id.stamp4);
+        stamp5 = findViewById(R.id.stamp5);
+        stamp6 = findViewById(R.id.stamp6);
+        stamp1.setVisibility(View.INVISIBLE);
+        stamp2.setVisibility(View.INVISIBLE);
+        stamp3.setVisibility(View.INVISIBLE);
+        stamp4.setVisibility(View.INVISIBLE);
+        stamp5.setVisibility(View.INVISIBLE);
+        stamp6.setVisibility(View.INVISIBLE);
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());

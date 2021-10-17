@@ -42,6 +42,9 @@ public class RankingActivity extends AppCompatActivity {
 
         ranklist = findViewById(R.id.ranklist);
 
+
+
+
         data = new ArrayList<RankingVO>();
 
         if (requestQueue == null) {
