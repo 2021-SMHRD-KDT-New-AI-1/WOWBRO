@@ -123,10 +123,10 @@ public class UserDashboard extends AppCompatActivity {
 
         ArrayList<Location> arrayList = new ArrayList<>();
 
-        arrayList.add(new Location(R.drawable.yongbong1, "용봉 초록 습지대", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.yangrim4, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
+        arrayList.add(new Location(R.drawable.horang, "호랑 가시나무길", "400년의 전통을 가진 나무"));
+        arrayList.add(new Location(R.drawable.yangin, "양인제과", "양림동의 빵집"));
+        arrayList.add(new Location(R.drawable.racong, "라콩 연구소", "비엔날레 주변 핸드드립 카페"));
+
 
         LocationAdapter locationAdapter = new LocationAdapter(this, R.layout.list_card_design, arrayList);
 
