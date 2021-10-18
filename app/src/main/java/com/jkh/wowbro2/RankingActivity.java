@@ -51,7 +51,7 @@ public class RankingActivity extends AppCompatActivity {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
-        String url = "http://10.0.2.2:3002/Yanglim";
+        String url = "http://10.0.2.2:3002/Ranking";
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 url,
@@ -62,14 +62,9 @@ public class RankingActivity extends AppCompatActivity {
                             desInfo = new JSONArray(response);
                             for (int i = 0;i<desInfo.length();i++) {
                                 JSONObject info = null;
-                                String user_id = "";
                                 String imgPath = "";
                                 String desName = "";
-                                String desAddress = "";
-                                String story = "";
-                                String sub_name = "";
                                 int like_check = 0 ;
-                                String page = "";
                                 try {
                                     info = (JSONObject) desInfo.get(i);
 
