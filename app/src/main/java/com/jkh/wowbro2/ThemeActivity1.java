@@ -1,11 +1,14 @@
 package com.jkh.wowbro2;
 
+import static com.google.zxing.integration.android.IntentIntegrator.REQUEST_CODE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,6 +35,7 @@ public class ThemeActivity1 extends AppCompatActivity {
     List<CourseVO1> data;
     RequestQueue requestQueue;
     JSONArray desInfo;
+    ImageView img_map, stamp1, stamp2, stamp3,stamp4,stamp5,stamp6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +43,26 @@ public class ThemeActivity1 extends AppCompatActivity {
         setContentView(R.layout.activity_theme);
 
         lv_course = findViewById(R.id.lv_course2);
+        img_map = findViewById(R.id.img_map);
         data = new ArrayList<CourseVO1>();
+        stamp1 = findViewById(R.id.stamp1);
+        stamp2= findViewById(R.id.stamp2);
+        stamp3 = findViewById(R.id.stamp3);
+        stamp4 = findViewById(R.id.stamp4);
+        stamp5 = findViewById(R.id.stamp5);
+        stamp6 = findViewById(R.id.stamp6);
+        stamp1.setVisibility(View.INVISIBLE);
+        stamp2.setVisibility(View.INVISIBLE);
+        stamp3.setVisibility(View.INVISIBLE);
+        stamp4.setVisibility(View.INVISIBLE);
+        stamp5.setVisibility(View.INVISIBLE);
+        stamp6.setVisibility(View.INVISIBLE);
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
-        String url = "http://10.0.2.2:3002/Yanglim";
+        String url = "http://10.0.2.2:3002/selectDes";
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 url,
@@ -62,8 +79,9 @@ public class ThemeActivity1 extends AppCompatActivity {
                                 String desAddress = "";
                                 String story = "";
                                 String sub_name = "";
-                                int like_check;
+                                int like_check ;
                                 String page = "";
+                                int qr_check ;
                                 try {
                                     info = (JSONObject) desInfo.get(i);
                                     user_id = info.getString("user_id");
@@ -74,8 +92,16 @@ public class ThemeActivity1 extends AppCompatActivity {
                                     sub_name = info.getString("sub_name");
                                     like_check = info.getInt("like_check");
                                     page = info.getString("page");
+                                    qr_check =info.getInt("qr_check");
                                     data.add(new CourseVO1(user_id, imgPath, desName, desAddress, story, sub_name, like_check, page));
-                                    Log.d("결과", data.get(i).toString());
+
+                                    if(qr_check==1 && desName.equals("펭귄마을")){
+                                        stamp1.setVisibility(View.VISIBLE);
+                                    }
+                                    //디비에 들어오는대로 이름값이랑 맞춰서 비저블 해주면 끝
+
+
+
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }//
@@ -105,6 +131,16 @@ public class ThemeActivity1 extends AppCompatActivity {
                 Intent intent = new Intent(ThemeActivity1.this, storyActivity.class);
                 intent.putExtra("info", data.get(i));
                 intent.putExtra("like_check", data.get(i).getLike_check());
+                startActivity(intent);
+            }
+        });
+
+        img_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThemeActivity1.this, MapActivity.class);
+                intent.putExtra("lat", "35.140250");
+                intent.putExtra("lon", "126.915668");
                 startActivity(intent);
             }
         });

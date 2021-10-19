@@ -2,11 +2,8 @@ package com.jkh.wowbro2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -28,9 +25,5 @@ public class infoActivity extends AppCompatActivity {
 
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
-
-
-
     }
 }

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -123,15 +124,33 @@ public class UserDashboard extends AppCompatActivity {
 
         ArrayList<Location> arrayList = new ArrayList<>();
 
-        arrayList.add(new Location(R.drawable.yongbong1, "용봉 초록 습지대", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.yangrim4, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
-        arrayList.add(new Location(R.drawable.art1, "비엔날레 전시관", "이 곳은 수많은 전설이 떠돌아 다닙니다."));
+        arrayList.add(new Location(R.drawable.horang, "호랑 가시나무길", "400년의 전통을 가진 나무"));
+        arrayList.add(new Location(R.drawable.yangin, "양인제과", "양림동의 빵집"));
+        arrayList.add(new Location(R.drawable.racong, "라콩 연구소", "비엔날레 주변 핸드드립 카페"));
+
 
         LocationAdapter locationAdapter = new LocationAdapter(this, R.layout.list_card_design, arrayList);
 
         listView.setAdapter(locationAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i == 0){
+                    Intent intent = new Intent(UserDashboard.this, info2Activity.class);
+                    startActivity(intent);
+                }
+                if(i ==1){
+                    Intent intent = new Intent(UserDashboard.this, info3Activity.class);
+                    startActivity(intent);
+                }
+                if(i ==2 ){
+                    Intent intent = new Intent(UserDashboard.this, info4Activity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
 
         imageView = findViewById(R.id.img_menu);
         imageView.setColorFilter(Color.parseColor("#FF665F5F"));
@@ -160,10 +179,9 @@ public class UserDashboard extends AppCompatActivity {
         ArrayList<FeaturedHelperClass> featuredLocations = new ArrayList<>();
 
         featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.art1,"예술 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.yangrim4,"양림동 이야기"));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.art1,"용봉동 이야기"));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.chungjang,"충장동 이야기"));
+
 
         adapter = new FeaturedAdapter(featuredLocations,getApplicationContext());
         featuredRecycler.setAdapter(adapter);

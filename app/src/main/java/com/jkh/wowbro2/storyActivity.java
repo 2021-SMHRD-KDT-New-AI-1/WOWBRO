@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,9 +25,8 @@ import org.json.JSONObject;
 public class storyActivity extends AppCompatActivity {
     TextView travel_name, travel_desc, travel_story;
     ImageView story_backimg, story_img;
-    FloatingActionButton btn_like, btn_info;
+    FloatingActionButton btn_like, btn_info, btn_qr;
     RequestQueue requestQueue;
-    int onOff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,8 @@ public class storyActivity extends AppCompatActivity {
         story_img = findViewById(R.id.story_img);
         btn_like = findViewById(R.id.btn_like);
         btn_info = findViewById(R.id.btn_info);
-//
+        btn_qr = findViewById(R.id.btn_qr);
+
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
@@ -53,23 +54,12 @@ public class storyActivity extends AppCompatActivity {
         Glide.with(this).load(desInfo.getImgPath()).into(story_img);
         String page = desInfo.getPage();
 
-        int like = desInfo.getLike_check();
-        if (like==0){
-            btn_like.setImageResource(R.drawable.ic_baseline_favorite_border_24);}
-        else if(like==1){
-            btn_like.setImageResource(R.drawable.ic_baseline_favorite_24);
-        }
-
-
         story_backimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
-
-
 
         SharedPreferences prefs = getSharedPreferences("shared", MODE_PRIVATE);
         String infos = prefs.getString("INFO",null);
@@ -83,66 +73,39 @@ public class storyActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-
+        final boolean[] onOff = {false};
+        btn_like.setImageResource(R.drawable.ic_baseline_thumb_up_24);
 
         String User_id = user_id;
         btn_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 StringRequest request = null;
-                if (onOff==0) {
-                    String url = "http://10.0.2.2:3002/Like";
-                    String name = desInfo.getName();
-                    String id = User_id;
-                    url += "?name=" + name;
-                    url += "&id=" + id;
+                String url = "http://10.0.2.2:3002/Like";
+                String name = desInfo.getName();
+                String id = User_id;
+                url += "?name=" + name;
+                url += "&id=" + id;
+                onOff[0] = true;
+                btn_like.setImageResource(R.drawable.ic_baseline_favorite_24);
+                request = new StringRequest(
+                        Request.Method.GET,
+                        url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
 
-                    btn_like.setImageResource(R.drawable.ic_baseline_favorite_24);
-                    request = new StringRequest(
-                            Request.Method.GET,
-                            url,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-
-                                }
                             }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
 
-                    );
-                    onOff=1;
-                } else if(onOff==1) {
-                    String url = "http://10.0.2.2:3002/Dislike";
-                    String name = desInfo.getName();
-                    String id = User_id;
-                    url += "?name=" + name;
-                    url += "&id=" + id;
-                    btn_like.setImageResource(R.drawable.ic_baseline_favorite_border_24);
-                    request = new StringRequest(
-                            Request.Method.GET,
-                            url,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-
-                                }
                             }
+                        }
 
-                    );
-                    onOff=0;
-                }
+                );
+                Toast.makeText(getApplicationContext(),"여행지 랭킹에 집계되었습니다.",Toast.LENGTH_SHORT).show();
                 requestQueue.add(request);
             }
         });
@@ -153,6 +116,14 @@ public class storyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(storyActivity.this, infoActivity.class);
                 intent.putExtra("page", Page);
+                startActivity(intent);
+            }
+        });
+
+        btn_qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(storyActivity.this, scanQR.class);
                 startActivity(intent);
             }
         });

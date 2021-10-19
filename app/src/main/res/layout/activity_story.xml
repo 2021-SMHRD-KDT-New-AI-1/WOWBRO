@@ -62,6 +62,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="-27dp"
                 android:clickable="true"
+                android:src="@drawable/ic_baseline_thumb_up_24"
                 app:backgroundTint="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/story_img"
                 app:layout_constraintEnd_toStartOf="@+id/btn_info"

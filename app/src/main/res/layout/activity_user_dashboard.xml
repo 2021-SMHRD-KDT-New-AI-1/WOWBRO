@@ -123,7 +123,7 @@
                     <ListView
                         android:id="@+id/listview"
                         android:layout_width="match_parent"
-                        android:layout_height="1300dp"
+                        android:layout_height="900dp"
                         android:layout_marginTop="20dp"/>
                     <!--여기 리스트뷰가 스크롤뷰랑 겹치는 현상으로 스크롤뷰랑 겹치지 않게 뷰포인트 효과를 줬는데 이렇게되면 리스트가 화면 전체에 나오지만 높이를 인식 못하는 부분이 있음 => 이부분에대한 고려가 필요함-->
                 </LinearLayout>
