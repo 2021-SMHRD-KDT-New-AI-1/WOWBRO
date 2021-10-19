@@ -99,7 +99,7 @@ public class UserDashboard extends AppCompatActivity {
         cv_mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserDashboard.this, MypageActivity.class);
+                Intent intent = new Intent(UserDashboard.this, RankingActivity.class);
                 startActivity(intent);
             }
         });
@@ -114,7 +114,7 @@ public class UserDashboard extends AppCompatActivity {
         try {
             info = new JSONObject(stringInfo);
             tv_userid.setText(info.getString("id"));
-            tv_userclear.setText("획득한 도장 : " + info.getString("clear") + "개");
+            tv_userclear.setText(info.getString("nick"));
 
         } catch (JSONException e) {
             e.printStackTrace();
