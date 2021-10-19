@@ -58,6 +58,7 @@ public class ThemeActivity1 extends AppCompatActivity {
         stamp5.setVisibility(View.INVISIBLE);
         stamp6.setVisibility(View.INVISIBLE);
 
+
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
@@ -93,11 +94,28 @@ public class ThemeActivity1 extends AppCompatActivity {
                                     like_check = info.getInt("like_check");
                                     page = info.getString("page");
                                     qr_check =info.getInt("qr_check");
-                                    data.add(new CourseVO1(user_id, imgPath, desName, desAddress, story, sub_name, like_check, page));
+                                    data.add(new CourseVO1(user_id, imgPath, desName, desAddress, story, sub_name, like_check, page, qr_check));
 
                                     if(qr_check==1 && desName.equals("펭귄마을")){
                                         stamp1.setVisibility(View.VISIBLE);
                                     }
+                                    if(qr_check==1 && desName.equals("공예거리")){
+                                        stamp2.setVisibility(View.VISIBLE);
+                                    }
+                                    if(qr_check==1 && desName.equals("오웬기념각")){
+                                        stamp3.setVisibility(View.VISIBLE);
+                                    }
+                                    if(qr_check==1 && desName.equals("우일선선교사사택")){
+                                        stamp4.setVisibility(View.VISIBLE);
+                                    }
+                                    if(qr_check==1 && desName.equals("이이남스튜디오")){
+                                        stamp5.setVisibility(View.VISIBLE);
+                                    }
+                                    if(qr_check==1 && desName.equals("사직공원")){
+                                        stamp6.setVisibility(View.VISIBLE);
+                                    }
+
+
                                     //디비에 들어오는대로 이름값이랑 맞춰서 비저블 해주면 끝
 
 
