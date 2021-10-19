@@ -40,7 +40,7 @@ public class storyActivity extends AppCompatActivity {
         story_img = findViewById(R.id.story_img);
         btn_like = findViewById(R.id.btn_like);
         btn_info = findViewById(R.id.btn_info);
-
+//
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
