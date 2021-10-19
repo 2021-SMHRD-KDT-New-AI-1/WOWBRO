@@ -16,7 +16,7 @@ public class Course2Adapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<Course2VO> data;
-
+//
     private LayoutInflater inflater;
 
     public Course2Adapter(Context context, int layout, List<Course2VO> data){
