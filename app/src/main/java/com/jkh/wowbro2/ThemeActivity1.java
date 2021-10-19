@@ -1,5 +1,7 @@
 package com.jkh.wowbro2;
 
+import static com.google.zxing.integration.android.IntentIntegrator.REQUEST_CODE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -137,6 +139,8 @@ public class ThemeActivity1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ThemeActivity1.this, MapActivity.class);
+                intent.putExtra("lat", "35.140250");
+                intent.putExtra("lon", "126.915668");
                 startActivity(intent);
             }
         });

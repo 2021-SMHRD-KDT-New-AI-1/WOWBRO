@@ -2,7 +2,9 @@ package com.jkh.wowbro2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -13,7 +15,8 @@ public class ThemeActivity2 extends AppCompatActivity {
 
     ListView lv_course2;
     List<com.jkh.wowbro2.Course2VO> data;
-    ImageView imageView3;
+    ImageView imageView3, img_map;
+
 
 
     @Override
@@ -22,6 +25,7 @@ public class ThemeActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_theme2);
 
         lv_course2 = findViewById(R.id.lv_course2);
+        img_map = findViewById(R.id.img_map);
         data = new ArrayList<com.jkh.wowbro2.Course2VO>();
 
         imageView3 = findViewById(R.id.imageView3);
@@ -37,6 +41,16 @@ public class ThemeActivity2 extends AppCompatActivity {
                 R.layout.course2list, data);
 
         lv_course2.setAdapter(adapter);
+
+        img_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThemeActivity2.this, MapActivity.class);
+                intent.putExtra("lat", "35.182399");
+                intent.putExtra("lon", "126.889054");
+                startActivity(intent);
+            }
+        });
 
     }
 }

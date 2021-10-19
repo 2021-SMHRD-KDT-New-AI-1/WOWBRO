@@ -81,58 +81,30 @@ public class storyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringRequest request = null;
-                if (onOff[0] == false) {
-                    String url = "http://10.0.2.2:3002/Like";
-                    String name = desInfo.getName();
-                    String id = User_id;
-                    url += "?name=" + name;
-                    url += "&id=" + id;
-                    onOff[0] = true;
-                    btn_like.setImageResource(R.drawable.ic_baseline_favorite_24);
-                    request = new StringRequest(
-                            Request.Method.GET,
-                            url,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
+                String url = "http://10.0.2.2:3002/Like";
+                String name = desInfo.getName();
+                String id = User_id;
+                url += "?name=" + name;
+                url += "&id=" + id;
+                onOff[0] = true;
+                btn_like.setImageResource(R.drawable.ic_baseline_favorite_24);
+                request = new StringRequest(
+                        Request.Method.GET,
+                        url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
 
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-
-                                }
                             }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
 
-                    );
-
-                } else {
-                    String url = "http://10.0.2.2:3002/Dislike";
-                    String name = desInfo.getName();
-                    String id = User_id;
-                    url += "?name=" + name;
-                    url += "&id=" + id;
-                    onOff[0] = false;
-                    btn_like.setImageResource(R.drawable.ic_baseline_favorite_border_24);
-                    request = new StringRequest(
-                            Request.Method.GET,
-                            url,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-
-                                }
                             }
+                        }
 
-                    );
-                }
+                );
                 Toast.makeText(getApplicationContext(),"여행지 랭킹에 집계되었습니다.",Toast.LENGTH_SHORT).show();
                 requestQueue.add(request);
             }

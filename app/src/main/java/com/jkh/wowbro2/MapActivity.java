@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,14 +25,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     List<mapModel> models;
 
     GoogleMap mMap;
-
-
+    float latitude;
+    float longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
 
         //동별 사진 변경 및 이동 액티비티 변경
         models = new ArrayList<>();
@@ -43,7 +44,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         yangrim_point.add(new PointVO(new LatLng(35.138347, 126.911860), "우일선선교사사택 "));
         yangrim_point.add(new PointVO(new LatLng( 35.138274, 126.915855), "오웬기념각 "));
         yangrim_point.add(new PointVO(new LatLng(35.141844, 126.911670), "사직공원  "));
-
 
         ArrayList<PointVO> yongbong_point = new ArrayList<>();
 
@@ -64,11 +64,24 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 //        ArrayList<PointVO> chuhu_point = new ArrayList<>();
 //
 //        chuhu_point.add(new PointVO(new LatLng(35.159948, 126.738343), "어떤 여행일까요"));
+        Intent coordinate = getIntent();
+        latitude = Float.parseFloat(coordinate.getStringExtra("lat"));
+        longitude = Float.parseFloat(coordinate.getStringExtra("lon"));
 
+        if (latitude == 35.140250f) {
+            models.add(new mapModel(R.drawable.yangrim, "양림동", "펭귄마을에서 시작하는 투어", ThemeActivity1.class, yangrim_point));
+            models.add(new mapModel(R.drawable.yangrim2, "용봉동", "해피해피벌스데이 해피랜드", ThemeActivity2.class, yongbong_point));
+            models.add(new mapModel(R.drawable.yangrim3, "동명-충장동", "5.18 역사가 궁금하다면 전일빌딩", ThemeActivity3.class, chungjang_point));
+        } else if (latitude == 35.182399f) {
+            models.add(new mapModel(R.drawable.yangrim2, "용봉동", "해피해피벌스데이 해피랜드", ThemeActivity2.class, yongbong_point));
+            models.add(new mapModel(R.drawable.yangrim3, "동명-충장동", "5.18 역사가 궁금하다면 전일빌딩", ThemeActivity3.class, chungjang_point));
+            models.add(new mapModel(R.drawable.yangrim, "양림동", "펭귄마을에서 시작하는 투어", ThemeActivity1.class, yangrim_point));
+        } else {
+            models.add(new mapModel(R.drawable.yangrim3, "동명-충장동", "5.18 역사가 궁금하다면 전일빌딩", ThemeActivity3.class, chungjang_point));
+            models.add(new mapModel(R.drawable.yangrim, "양림동", "펭귄마을에서 시작하는 투어", ThemeActivity1.class, yangrim_point));
+            models.add(new mapModel(R.drawable.yangrim2, "용봉동", "해피해피벌스데이 해피랜드", ThemeActivity2.class, yongbong_point));
+        }
 
-        models.add(new mapModel(R.drawable.yangrim, "양림동", "펭귄마을에서 시작하는 투어", ThemeActivity1.class, yangrim_point));
-        models.add(new mapModel(R.drawable.yangrim2, "용봉동", "해피해피벌스데이 해피랜드", ThemeActivity2.class, yongbong_point));
-        models.add(new mapModel(R.drawable.yangrim3, "동명-충장동", "5.18 역사가 궁금하다면 전일빌딩", ThemeActivity3.class,chungjang_point));
 //        models.add(new mapModel(R.drawable.yongbong1, "추후 공개", "어떤 투어가 기다릴까요?", Thema1Activity.class,chuhu_point));
 
         adapter = new mapAdepter(models, this);
@@ -76,18 +89,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
 
-
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // 페이지 넘겼을 때
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
             @Override
             public void onPageSelected(int position) {
-
-
-
 
                 for(int i = 0; i<models.get(position).getPoint().size(); i++){
 
@@ -114,31 +122,23 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
 
-
-
-
-
-
         FragmentManager fragmentManager = getFragmentManager();
         MapFragment mapFragment = (MapFragment) fragmentManager.findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        Log.d("위도", String.valueOf(latitude));
+        Log.d("경도", String.valueOf(longitude));
 
     }
-
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
         mMap.getUiSettings().isMyLocationButtonEnabled();
-        LatLng start =new LatLng(35.140250, 126.915668);
+        LatLng start =new LatLng(latitude, longitude);
 
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(start));
 
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(16));
-
-
     }
-
-
 }
