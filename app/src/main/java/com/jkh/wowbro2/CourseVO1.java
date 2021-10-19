@@ -12,9 +12,10 @@ public class CourseVO1 implements Serializable {
     private String sub_name;
     private int like_check;
     private String page;
+    private int qr_check;
 
 
-    public CourseVO1(String user_id, String imgPath, String name, String location, String story, String sub_name, int like_check, String page){
+    public CourseVO1(String user_id, String imgPath, String name, String location, String story, String sub_name, int like_check, String page, int qr_check){
         this.user_id = user_id;
         this.imgPath = imgPath;
         this.name = name;
@@ -23,6 +24,7 @@ public class CourseVO1 implements Serializable {
         this.sub_name = sub_name;
         this.like_check = like_check;
         this.page = page;
+        this.qr_check = qr_check;
     }
 
     public String getUser_id() {return user_id;}
@@ -46,4 +48,5 @@ public class CourseVO1 implements Serializable {
     }
     public String getPage() {return page;}
     public int getLike_check() {return like_check;}
+    public int getQr_check() {return qr_check;}
 }

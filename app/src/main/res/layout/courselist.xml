@@ -75,4 +75,13 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/clear2" />
 
+    <TextView
+        android:id="@+id/tv_qr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ranking_num"
+        app:layout_constraintTop_toBottomOf="@+id/img_clear" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

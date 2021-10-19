@@ -72,13 +72,14 @@ public class CourseAdapter1 extends BaseAdapter {
         ImageView img_2 = view.findViewById(R.id.img_2);
 
         Glide.with(context).load(data.get(i).getImgPath()).into(img_1);
-        img_clear.setImageResource(R.drawable.clear2);
+
         img_2.setImageResource(R.drawable.thumb);
         img_clear.setColorFilter(Color.parseColor("#FFD740"));
 
         tv_name.setText(data.get(i).getName());
         tv_location.setText(data.get(i).getLocation());
 
+        String desname = (String) tv_name.getText();
         here = context.getApplicationContext();
 
         if (requestQueue == null) {
@@ -104,7 +105,7 @@ public class CourseAdapter1 extends BaseAdapter {
                                 String sub_name = "";
                                 int like_check ;
                                 String page = "";
-                                int qr_check ;
+                                String qr_check = "";
                                 try {
                                     info = (JSONObject) desInfo.get(i);
                                     user_id = info.getString("user_id");
@@ -115,12 +116,10 @@ public class CourseAdapter1 extends BaseAdapter {
                                     sub_name = info.getString("sub_name");
                                     like_check = info.getInt("like_check");
                                     page = info.getString("page");
-                                    qr_check =info.getInt("qr_check");
+                                    qr_check =info.getString("qr_check");
 
-                                    if(qr_check==1 && desName.equals("펭귄마을")){
-                                        img_clear.setImageResource(R.drawable.stamp);
-                                        img_clear.setColorFilter(Color.parseColor("#fd5151"));
-                                    }
+
+
                                     //디비에 들어오는대로 이름값이랑 맞춰서 그림바꿔주면 됩니다.
 
 
