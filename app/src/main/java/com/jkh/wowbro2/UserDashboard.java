@@ -1,11 +1,13 @@
 package com.jkh.wowbro2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -37,7 +39,7 @@ public class UserDashboard extends AppCompatActivity {
     TextView tv_userid, tv_userclear;
     DrawerLayout drawerLayout;
     View drawerView;
-    CardView cv_home, cv_ranking, cv_mypage;
+    CardView cv_home, cv_ranking, cv_mypage, cv_change, cv_out;
     private long backBtnTime = 0;
 
     @Override
@@ -57,6 +59,8 @@ public class UserDashboard extends AppCompatActivity {
         cv_home = findViewById(R.id.cv_home);
         cv_ranking = findViewById(R.id.cv_ranking);
         cv_mypage = findViewById(R.id.cv_mypage);
+        cv_change = findViewById(R.id.cv_change);
+        cv_out = findViewById(R.id.cv_out);
 
         img_menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +105,39 @@ public class UserDashboard extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UserDashboard.this, RankingActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        cv_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserDashboard.this, UpdateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cv_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder msgBuilder = new AlertDialog.Builder(UserDashboard.this)
+                        .setTitle("로그아웃")
+                        .setMessage("로그아웃하시겠습니까?")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(UserDashboard.this, LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                AlertDialog msgDlg = msgBuilder.create();
+                msgDlg.show();
+
             }
         });
 

@@ -136,6 +136,33 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_out"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_row="3"
+
+            android:layout_column="0">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:src="@android:drawable/ic_menu_set_as"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="70dp"
+                android:fontFamily="@font/scd4"
+                android:text="로그아웃"
+                android:textSize="13dp" />
+
+        </androidx.cardview.widget.CardView>
+
 
     </GridLayout>
 
