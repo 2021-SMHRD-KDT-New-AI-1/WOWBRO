@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,6 +50,7 @@ public class storyActivity extends AppCompatActivity {
 
         Intent info = getIntent();
         CourseVO1 desInfo = (CourseVO1) info.getSerializableExtra("info");
+
         travel_name.setText(desInfo.getName());
         travel_desc.setText(desInfo.getSub_name());
         travel_story.setText(desInfo.getStory());

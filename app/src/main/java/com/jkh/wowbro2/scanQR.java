@@ -74,18 +74,23 @@ public class scanQR extends AppCompatActivity {
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-
+                                    Log.d("qr", "onResponse: "+"qr촬영 성공");
+                                    ThemeActivity1.qr = desName;
+                                    finish();
                                 }
                             },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-
+                                    error.printStackTrace();
                                 }
                             }
                     );
                     requestQueue.add(request);
 
+//                    Intent intent2 = new Intent(scanQR.this, storyActivity.class);
+//                    intent2.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+//                    startActivity(intent2);
                 }
             }
         } else {

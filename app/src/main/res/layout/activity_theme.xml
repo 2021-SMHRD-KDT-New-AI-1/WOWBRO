@@ -115,6 +115,16 @@
                         android:layout_height="40dp"
                         app:srcCompat="@drawable/ic_baseline_map_24" />
 
+                    <ImageView
+
+                        android:id="@+id/img_refresh"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="right|top"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        app:srcCompat="@drawable/ic_baseline_rotate_left_24" />
+
 
                 </FrameLayout>
 

@@ -35,7 +35,8 @@ public class ThemeActivity1 extends AppCompatActivity {
     List<CourseVO1> data;
     RequestQueue requestQueue;
     JSONArray desInfo;
-    ImageView img_map, stamp1, stamp2, stamp3,stamp4,stamp5,stamp6;
+    ImageView img_map, stamp1, stamp2, stamp3,stamp4,stamp5,stamp6, img_refresh;
+    static String qr = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class ThemeActivity1 extends AppCompatActivity {
         stamp4 = findViewById(R.id.stamp4);
         stamp5 = findViewById(R.id.stamp5);
         stamp6 = findViewById(R.id.stamp6);
+        img_refresh = findViewById(R.id.img_refresh);
         stamp1.setVisibility(View.INVISIBLE);
         stamp2.setVisibility(View.INVISIBLE);
         stamp3.setVisibility(View.INVISIBLE);
@@ -162,5 +164,30 @@ public class ThemeActivity1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        img_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    //TODO 액티비티 화면 재갱신 시키는 코드
+                    Intent intent = getIntent();
+                    finish(); //현재 액티비티 종료 실시
+                    overridePendingTransition(0, 0); //인텐트 애니메이션 없애기
+                    startActivity(intent); //현재 액티비티 재실행 실시
+                    overridePendingTransition(0, 0); //인텐트 애니메이션 없애기
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!qr.equals("")){
+            Log.d("qr", "onResume: "+qr);
+
+        }
     }
 }
