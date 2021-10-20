@@ -63,7 +63,7 @@ public class ThemeActivity1 extends AppCompatActivity {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
-        String url = "http://10.0.2.2:3002/selectDes";
+        String url = "http://172.30.1.14:3002/selectDes";
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 url,

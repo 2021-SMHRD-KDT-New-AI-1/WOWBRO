@@ -65,7 +65,7 @@ public class UpdateActivity extends AppCompatActivity {
                 String pw2 = edit_pw2.getText().toString();
                 String nick = edit_nick.getText().toString();
 
-                String url = "http://10.0.2.2:3002/Update?id=";
+                String url = "http://172.30.1.14:3002/Update?id=";
                 url += id;
                 url += "&pw=" + pw;
                 url += "&nick=" + nick;
@@ -102,7 +102,7 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String id = user_id;
-                String url = "http://10.0.2.2:3002/Delete?id=";
+                String url = "http://172.30.1.14:3002/Delete?id=";
                 url += id;
 
                 StringRequest request = new StringRequest(

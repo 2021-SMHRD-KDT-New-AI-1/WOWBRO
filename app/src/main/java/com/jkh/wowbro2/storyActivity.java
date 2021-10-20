@@ -27,6 +27,7 @@ public class storyActivity extends AppCompatActivity {
     ImageView story_backimg, story_img;
     FloatingActionButton btn_like, btn_info, btn_qr;
     RequestQueue requestQueue;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class storyActivity extends AppCompatActivity {
         travel_story.setText(desInfo.getStory());
         Glide.with(this).load(desInfo.getImgPath()).into(story_img);
         String page = desInfo.getPage();
+        name = desInfo.getName();
 
         story_backimg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,8 +83,8 @@ public class storyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringRequest request = null;
-                String url = "http://10.0.2.2:3002/Like";
-                String name = desInfo.getName();
+                String url = "http://172.30.1.14:3002/Like";
+
                 String id = User_id;
                 url += "?name=" + name;
                 url += "&id=" + id;
@@ -124,6 +126,7 @@ public class storyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(storyActivity.this, scanQR.class);
+                intent.putExtra("name", name);
                 startActivity(intent);
             }
         });
